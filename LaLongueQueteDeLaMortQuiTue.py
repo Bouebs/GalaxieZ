@@ -10,11 +10,28 @@ from Functions import *
 # UTF8Writer = getwriter('utf8')
 # sys.stdout = UTF8Writer(sys.stdout)
 
-
-
-#def delay_print(s,ts=0.03):
-
 Perso=Personnage()
+fast_print = False
+
+if "-f" in sys.argv:
+    print("coucou")
+    fast_print = True
+    ts_ini = 0.0000001
+    ts_logo = 0.0000001
+else :
+    ts_ini = 0.04
+    ts_logo = 0.01
+
+
+def delay_print(s, ts=ts_ini):
+    if fast_print:
+        print(s)
+    else:
+        for c in s:
+            sys.stdout.write(c)
+            sys.stdout.flush()
+        time.sleep(ts)
+
 
 
 class QuFormatter(string.Formatter):
@@ -100,7 +117,7 @@ delay_print("""
    ,*(@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&&%%%%%%%&&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#,   
   ,%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/.   
   *&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,    
-""", 0.001)
+""", ts_logo)
 
 delay_print("""
 

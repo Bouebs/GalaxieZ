@@ -13,13 +13,6 @@ def Input(ListInputPossibles):
     return rep
 
 
-def delay_print(s, ts=0.04):
-    for c in s:
-        sys.stdout.write(c)
-        sys.stdout.flush()
-        time.sleep(ts)
-
-
 def UpdateCarac(Perso):
     PAsDict=vars(Perso)
     if "CaracBase" in PAsDict.keys():
