@@ -1,0 +1,167 @@
+Compétences	Les compétences représentent les savoirs, savoirs faire et savoir être d'un personnage. Elles ont un impact important sur la manière dont le personnage pourra résoudre les défis qu'il va rencontrer. A sa création un personnage ne peut pas avoir plus de 10 compétences. Nous avons regroupé quelques compétences dans des métiers pour vous permettre de gagner du temps et vous inspirer.						Coefficient réputation				Calcul de la réputation		
+	Combat			dégâts de base	portée max mètres	description	Pauvres	Moyens	Riches	total	Pauvres	Moyens	Riches
+		combat à main nues					3	0	-2	1	score compétence² x réputation pauvres		
+			krav maga	30-50	0								
+			combat de rue	25-40	0								
+			kung fu	25-35	0								
+			judo	10-25	0								
+			gymnastique douce	0-2	0								
+		combat à l'arme tranchante											
+			épée	40-70	0								
+			hache	50-80	0								
+			couteau	30-70	0								
+			faux	20-100	0								
+			hallebarde	50-90	0								
+		combat à l'arme contondante											
+			masse	70-90	0								
+			marteau de guerre	80-100	0								
+			fléau d'armes	50-100	0								
+			bâton	30-60	0								
+			fouet	20-80	0								
+		combat à l'arme de jet											
+			arc	20-30	200								
+			arbalète	40-50	150								
+			fronde	10-20	20								
+			lance pierre	20-40	15								
+			pavé	10-40	10								
+		combat à l'arme à feu											
+			pistolet	50-100	300								
+			fusil	70-120	500								
+			fusil mitrailleur	80-150	500								
+			fusil de précision	220-250	1000								
+			lance missile	300-350	10000								
+		combat à l'arme à énergie											
+			pistolaser	25-60	500								
+			fusil laser	80-110	800								
+			fusil à plasma	150-200	1000								
+			blaster	180-220	600								
+			fusil gauss	250-300	2000								
+		combat à l'arme futuriste											
+			lame nano-vibratile	250-270	0								
+			lame semi-réelle	150-170	0								
+			lame à flux de neutrons	300-400	0								
+			matériau biotech	190-250	0								
+		combat avec armes pittoresques											
+			lance-flammes	200-300	5								
+			tronçonneuse	100-130	0								
+		combat à l'explosif											
+			dynamite	450-500									
+			grenade à fragmentation	450-500									
+			grenade à fumée	30-40									
+			grenade à énergie	550-700									
+			grenade warp	750-900									
+		autres											
+			tactique de combat										
+			stratégie militaire										
+													
+	Techniques												
+		bâtiment											
+			construction bois										
+			construction briques										
+			construction parpaings										
+			construction béton										
+			construction acier										
+			construction verre										
+			construction plastacier										
+			construction nanomatériaux										
+			plomberie										
+			éléctricité										
+			architecture d'intérieur										
+			espaces verts										
+		mécanique											
+			moto										
+			vélo										
+			véhicules légers										
+			véhicules lourds										
+			avions										
+			hélicoptères										
+			ballons										
+			navettes suborbitales										
+			vaisseaux solaires										
+			vaisseaux extrasolaires										
+		robotique											
+			robots compagnons										
+			cobotique										
+			robots d'assistance										
+			robots de conditions extrêmes										
+			cyborgs										
+			cybernétique										
+		chimie											
+			chimie organique										
+			chimie de synthèse										
+		biologie											
+			médecine										
+			xenomédecine										
+			thérapie génique										
+			clonage										
+			modifications génétiques										
+		mathématiques											
+			calcul mental										
+			géométrie										
+			algèbre										
+			algorithmie										
+		informatique											
+			réseaux										
+			programmation machine										
+			programmation objet										
+			ergonomie logicielle										
+			intelligence artificielle										
+			interactions hommes machines										
+			conscience de synthèse										
+			thérapie psychologicielle										
+		sciences cognitives											
+			modifications des souvenirs										
+			reprogrammation de personnalité										
+		commercial											
+			vente										
+			négociation										
+			change										
+			mensonge										
+		ultraphysique											
+			voyage dans le temps										
+			trou de ver										
+			antigrav										
+			téléportation										
+			ubiquité										
+	Littéraires												
+		langues											
+			parlé										
+			écrit										
+		culture											
+			culture générale										
+			littérature										
+			arts graphiques										
+			théatre										
+			musique										
+			cinéma et vidéo										
+			jeux										
+		talent artistique											
+			littérature										
+			arts graphiques										
+			théâtre										
+			musique										
+			cinéma et vidéo										
+			jeux										
+		magie											
+			invocation										
+			enchantement										
+			potions										
+			malédiction										
+			manipulation élémentaire : feu										
+			manipulation élémentaire : eau										
+			manipulation élémentaire : air										
+			manipulation élémentaire : terre										
+			manipulation élémentaire : métal										
+			manipulation élémentaire : temps										
+			manipulation élémentaire : bois										
+		religion											
+			occultisme										
+			théologie										
+			culte										
+			prière										
+			prêche										
+			oecuménisme										
+		autre											
+			empathie										
+			menaces										
+			discours										

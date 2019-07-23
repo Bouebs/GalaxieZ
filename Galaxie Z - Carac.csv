@@ -1,0 +1,18 @@
+Nom,Description,Calcul,,
+Force,La Force représente la capacité d'action sur le monde physique du personnage,aléatoire entre 0 et 100,,
+Endurance,L'Endurance représente la capacité de résistance aux attaques physiques du personnage,aléatoire entre 0 et 100,,
+Vitesse,"La Vitesse représente la relation au temps du personnage, la quantité d'action qu'il peut réaliser",aléatoire entre 0 et 100,,
+Perception,La Perception représente la capacité de connaître l'environnement physique du personnage,aléatoire entre 0 et 100,,
+Précision,La Précision représente la capacité du personnage d'ajuster ses actions dans le monde physique,aléatoire entre 0 et 100,,
+Social,Le Social représente la capacité du personnage à entrer en relation avec les autres entités conscientes,aléatoire entre 0 et 100,,
+Intelligence,L'Intelligence représente la capacité du personnage à comprendre le monde qui l'entoure,aléatoire entre 0 et 100,,
+Sensibilité,La Sensibilité représente la capacité du personnage à percevoir les fluctuations du monde magique,aléatoire entre 0 et 100,,
+Volonté,"La Volonté représente la capacité du personnage à agir de manière cohérente au cours du temps, elle permet notamment de résister à la magie",aléatoire entre 0 et 100,,
+,,,,
+Points de,,,,
+Vie,Décrit numériquement vitalité du personnage,(Fo + En + Vol)*10,,
+Moral,Décrit numériquement la résistance mentale du personnage,(Pe + Int + Vol)*10,,
+Magie,Décrit numériquement la connexion du personnage à la magie,(Pe + Int + Sen)*10,,
+Réputation,Décrit la manière dont le personnage est perçu des différentes strates de la société galactique,base + (So +Sen),,scores de base = So + Sen dans les trois strates
+Expérience,Décrit l'accumulation d'expérience du personnage,aléatoire [0-100] +(Vit +Int +Vol),,il y a de l'expérience dès le début du jeu
+Dégats,Décrit la quantité de dégats infligés par le personnage en fourchette (ex : 8 - 13),base arme + (Fo + Vit + Pr),,dégâts de base = borne basse = Fo + Vit + Pr et borne haute = Fo + Vit + Pr

@@ -1,0 +1,86 @@
+Inventaire	Proba					
+Liste		Type	Nom	Matériau	Description	Poids
+4 listes existent en fonction de la réputation du personnage (-999 à -500 ; -499 à 0 ; 1 à 499 ; 500 à 999)		Monnaies				
+			Bitcoins (crédits universel)	Immatériel	Ils ont réussi, le bitcoin s'est imposé dans le futur comme la monnaie de référence dans l'univers. Pensez à investir aujourd'hui, qui sait combien cela vaudra dans un ou deux millénaires.	
+			Galions Crystalims			
+			Dollars américains			
+			Boue cinétique Ar'gyl			
+			Eau d'Impö			
+		Armes				
+			Chaque type d'arme possible dans les compétence existe dans les différents matériaux ou type possibles un peu comme la logique des matériaux dans Daggerfall			
+			Os			
+				blanc		
+			Bois			
+				marron		
+			Silex			
+				Gris clair		
+			Bronze			
+				Orange		
+			Fer			
+				Gris foncé		
+			Acier			
+				Gris foncé avec points blancs		
+			Plastacier			
+				Gris foncé avec points bleus		
+			Energie			
+				Bleu electrique		
+			Plasma			
+				Bleu foncé		
+			Laser			
+				Rouge		
+			Quantique			
+				Violet		
+			Crystal vivant			
+				Vert clair		
+			Nano matériau			
+				Noir avec points verts		
+			Temporelle			
+				Rose avec points rouges		
+			Gravitique			
+				Violet avec points bleus		
+Etape 1 : déterminer le nombre de slots remplis dans l'inventaire (n=aléatoire 5 à 20 items)		Outils				
+Etape 2 : pour le slot n°1 sur n détermination de la nature de l'item tiré au hasard dans la liste en suivant les chiffres (entre 1 et 1000) notés dans la liste.		Mode				
+Etape 3 : si l'item n'est pas déjà attribué à un slot ok, si l'item est déjà attribué on retire.		Loisirs				
+Etape 4 : une fois l'item attribué à un slot on passe à l'item n°2 sur n		Véhicules				
+Etape 5 : une fois tous les slots remplis on sabre le champagne		Habitation				
+						
+	1	Mode	Rose d'argent	Argent	Objet symbolique signe d'engagement marital. Issu d'une vieille coutume terrienne, la rose d'argent est offerte par le futur époux à sa promise pour lui demander sa main.	0.1
+	2 à 5	Outils	Bicordeur	Acier	Le bicordeur est un outil d'analyse très polyvalent. On l'utilise pour identifier les matériaux présents dans leur environnement, les radiations. Permet notamment de repérer des présences de formes de vie.	1
+	6 à 8	Outils	Tricordeur	Acier	Le tricordeur est un outil d'analyse très polyvalent. Il est utilisé pour identifier les matériaux présents dans l'environnement, les radiations ainsi que les fluctuations des champs de magie. Permet notamment de répérer des formes de vie.	2
+	9 à 12	Véhicule	Monoroue Daichi	Plastacier	Le monoroue daichi est un véhicule utilisé très largement dans les cités populaires surpeuplées des mondes ruches. Ils ont une plutôt mauvaise réputation parce qu'ils sont associés aux gangs de rue.*	0
+	13 à 16	Outils	Transpal antigrav	Gravitique	Le transpal antigrav est un outil de transport utilisant la technologie antigravitique. Il permet de transporter très facilement toute une série d'objets et il est particulièrement utilisé dans les milieux militaires. Des rumeurs circulent à propos d'accidents ayant impliqué ce type de transpal et ayant rasé des villes entières.	10
+	17 à 25	Mode	Combinaison de travail	Tissu	Les combinaisons de travail sont l'un des habits les plus fréquemment rencontrés à travers l'univers. Les formes sont variées pour correspondre aux différentes morphologies mais elles partagent des caractéristiques communes : prix faible, grande résistance, discrétion.	2
+	26 à 29	Mode	Costume guindé	Tissu	Les costumes guindés sont à la bonne société ce que les combinaisons de travail sont aux prolétaires : indispensable. Bien qu'ils varient très grandement en forme et matières du faire des différences morphologiques des différentes races de l'univers, les costumes guindés ont en commun de toujours contenir une note surannée qui montre bien aux autres à quel point le porteur est membre d'une élite détachée des problèmes des prolétaires.	5
+	30 à 45	Outils	Communicateur universel	Energie	Les communicateurs universels sont une exclusivité de la firme Matrkia. En forme de pastille plate, arborant le M stylisé de la marque, le communicateur se colle au corps du locuteur, proche de ses organes de communication. Il propose alors une traduction instantanée de tous les dialectes de l'univers. Les communicateurs universels plus communément appelés des Matrkia sont capables de traduire des langages inconnus par les concepteurs grâce a un système d'intelligence artificielle qui apprends en s'appuyant sur les profils d'ondes laissés par les êtres vivants dans le flux magique. Les premières versions des Matrkia auraient joué un rôle non négligeable dans l'escalade guerrière des Indépendantistes des marches. L'historien Xrim Lalkim explique que les tensions étaient telles qu'une imprécision de traduction a suffi pour lancer le secteur dans la guerre.	0.5
+	46 à 47	Arme	Armure Bikî-bise	Plastacier	L'armure bikî-bise est issue du Pays Morcelé. Il s'agit d'une armure énergétique très résistante et munie de capteurs enrivonnementaux. Elle permet notamment de survivre dans le vide spatial pendant quelques heures. Parfois surnommée armure scrarabée, du fait de sa couleur noire laquée et du zonzonnement caractéristique de ses condensateurs.	8
+	48 à 49	Arme	Nzikh ndoa-yané	Biotech	Le Nzikh ndoa-yané est un fouet biotech qui perturbe les systèmes nerveux des règnes animaux. Il est également appelé fouet-liane parce qu'une fois la victime touchée, celle-ci est enferrée dans un réseau de ramifications issues du Nzikh tout en subissant une douleur atroce. Les modificateurs de dégâts ne s'appliquent que lorsque l'arme est équipée.	2
+	50 à 60	Arme	Epée torrent	Energie	L'épée torrent est l'une des armes les plus répandues dans le super amas de la Vierge. La lame constituée d'un flux de neutrons canalisée est capable de briser la plupart des blindages et se révèle redoutable pour les structures cristallines. Sans bruit, elle émet un rayonnement blafard caractéristique (dit rayonnement de Tcherenkov) et laisse une odeur d'ozone derrière elle.	2
+	61 à 65	Arme	Harpon-tokamak	Acier	Les Harpons tokamaks sont des armes de jet basés sur des outils de chasseur de Tetrarainos. Constitué d'une sorte de canon cylindrique, leur puissance est proverbiale mais leur temps de rechargement l'est aussi.	3
+	66 à 69	Arme	Lance Ndi	Gravitique	Les lances Ndi sont réputés à travers la galaxie pour leur grande capacité de pénétration. Leur lame de xerame à fil semi réél en font l'une des rares armes qui puisse frapper à la fois les êtres matériels et magiques.	4
+	70 à 85	Arme	Epée foghba	Acier	Les épées fogbha ont longtemps fait partie du matériel de base des guerriers Vignlierr. Cette épée à lame nano vibratile se révélait mortelle pour ces êtres à la forme changeante, la lame épousant à chaque mouvement une forme nouvelle.	4
+	86	Outils	Grelots Yebbe	Gravitique	Les grelots yebbe sont un outil d'entretien des stations spatiales et des planétoïdes artificiels. Ces derniers génèrent un champ de Higgs qui permet de remettre à zéro la plupart des systèmes de gravité artificielle. L'activation d'un grelot yebbe annule la gravité pendant une dizaine de minutes	8
+	87 à 90	Habitation	Géobullle	Plastacier	Les géobulles sont des habitats amovibles qui permettent de déployer très rapidement des bases en milieu hostile. Ces dernières peuvent se ranger facilement du fait de l'utilisation d'un pliage fractal. Les plus réputées des géobulles proviennent de la société Capsule Corp. et sont constituées d'hélioalliage indesctructible.	70
+	91	Arme	Bombe Tesla	Energie	Les bombes Tesla sont moins des armes de destruction que des armes d'assaut. En effet l'explosion d'une bombe Tesla produit une déviation de Wheeler qui permet de traverser n'importe quel obstacle, notamment les boucliers énergétiques planétaires. L'explosion provoque une irradiation localisée et génère une chaleur importante ce qui explique sont utilisation quasi exclusive dans l'espace.	20
+	92 à 93	Véhicule	Nef Ngometek	Plastacier	Les Nefs Ngometek sont originaires du Pays Morcelé et ont été les premières à être équipées de modules de pénétration branaires. Cela en fait de parfaits vaisseaux d'abordage puisqu'ils peuvent facilement traverser les champs de forces et les blindages quantiques.	100
+	94	Outils	Boussole à tachyon	Gravitique	La boussole à tachyon permet de repérer les trous de ver et de localiser les dimensions de poche mobiles. C'est un objet extêmement rare qui servirait au voyageurs temporels.	0.5
+	95 à 100	Arme	Bulle anti-émeute	Energie	Les bulles anti-émeute sont des générateurs de champ de force Jalounex autoportées. Elle permet d'isoler les éléments dangereux (armes, manifestants agressifs, etc.) et les transporte du côté des forces de l'ordre. Il s'agit d'une arme non létale.	1
+	101 à 105	Outils	Déclencheur infra-spatial	Acier	Puce intradermale nanotech permettant de permuter la conscience entre différentes enveloppes corporelles.	0.1
+	106 à 120	Outils	Puce Zelig	Acier	Traducteur universel et outil de camouflage. Quelle que soit l'apparence du porteur, les personnes de son entourage le perçoivent comme normal. 	3
+	121 à 123	Arme	Pistole à métrique d'Alcubierre	Temporelle	Arme qui projette des bulles de forces holographiques qui peuvent atteindre la matière sous n'importe quelle forme. Peut être reconfigurée pour créer des bulles spatio-temporelles, mais l'effet de cet usage est inconnu.	1
+	124 à 126	Véhicule	Perce-temps	Temporelle	Camping car un peu crasseux au look légèrement kéké avec ses tubes chromés qui entourent le camion. Ces tubes contiennent un système d'accélération des sphérules de kronoïte qui lui permet de voyager dans le temps. La kronoïte est un matériau mystérieux découvert par René Nozobinjob scientifique dont l'héritage s'est perdu dans le temps. Le camping car a sa porte latérale défoncée.	1000
+	127 à 130	Outils	Sharingan	Biotech	Le sharingan est un implant biotech qui permet au porteur d'apprendre presque instantanément des techniques corporelles (travail, arts martiaux, sports, etc.). Les porteurs de Sharingan portent une sorte de tâche à la limite de l'iris de l'oeil.	0.1
+	131 à 151	Arme	Pistolaser	Laser	Arme de base dans la plupart des systèmes de l'univers le pistolaser est aussi une icône de la science fiction qui fait que malgré son manque flagrant d'efficacité, il est toujours porté à la ceinture. 	1
+	152 à 160	Loisirs	PS2004	Acier	La PS2004 est la toute nouvelle console de jeu de la marque Sony. Graphismes incroyables, jeux passionnants, on repousse les limites du gameplay. Et peux lire les redrays.	4
+	161 à 170	Loisirs	Animus	Energie	L'animus est un système de jeu ayant la forme d'un sarcophage et qui propose une expérience puissante de réalité virtuelle. Il repose sur l'interprétation de l'ADN pour construire un jeu à partir des briques mémorielles inscrites dans l'ADN de personnes et d'êtres ayant vécu différentes périodes. La dernière version de l'animus peut être utilisée par les trois règnes.	80
+	171 à 190	Outils	Ombrevole	Acier	L'ombrevole est un dispositif automatisé de protection solaire. Il s'agit d'une ombrelle qui flotte au dessus de porteur pour le protéger de la chaleur.	5
+	191 à 200	Mode	Distille Fremen	Tissu	Le distille est un costume permettant de récupérer l'eau du corps humain et de protéger de la chaleur. Il utilise la pression apportée par les talons lors de la marche pour faire circuler l'eau dans le distille. Sent le pipi.	8
+	201 à 210	Mode	Limace thermo régulée	Biotech	La LTR est un organisme biologique dans lequel se glisse le porteur pour bénéficier d'une régulation thermique efficace. Bien que cela soit un peu dégoûtant pour certains peuples, l'efficacité est très largement démontrée. Existe en différentes tailles et différentes couleurs.	15
+	211 à 225	Arme	Hirizes	Magie	Les hirizes sont des bijoux sacrés dont le rôle est de protéger le porteur contre les attaques magiques. Constitué de cinq fines chaînes : deux bracelets, deux bracelets de chevilles et un collier. Le matérieux des hirizes ressemble à de l'or dont les reflets sont légèrement arc-en-ciel.	0.5
+	226 à 230	Habitation	Vaisselle Yugi	Bronze	La vaisselle Yugi est issue d'une tradition multiséculaire d'un pays de la Terre. Constituée d'un alliage de bronze contenant un taux d'étain important, elle est réputée prolongée la vie. 	1
+	231 à 235	Outils	Champ d'immortalité	Energie	Le champ d'immortalité créé une zone dans laquelle il est impossible de mourrir. C'est particulièrement apprécié des touristes. Le champ ne peut être installé qu'une fois et ne peux plus être déplacé, il couvre une zone d'environ 1000 m²	80
+	236	Outils	Gloomhaven	Magie	Relique sacrée ultime, Gloomhaven transcende l'espace et le temps en étant le meilleur jeu de tous les continuum temporels et de tous les univers.	3
+	237 à 239	Arme	Excalibur	Magie	Epée d'Arthur, elle a tendance à se planter dans un rocher et à y rester bloquée. Cadeau des dieux payens elle recèle une grande puissance magique en se comportant comme un paratonerre et en canalisant les vents de magie. +3 dégats ; brûlant, peut toucher les éthérés	7
+	240 à 255	Mode	Nanocosmétique	Acier	Le maquillage a relativement peu évolué, si ce n'est qu'il est désormais constitué de nanorobots qui peuvent se reconfigurer sur une simple programmation. Ces maquillages ont été utilisés dans certains cercles sociaux pour exprimer les émotions de manière nouvelle. Du point de vue militaire, l'utilisation de nanocosmétique a été envisagée pour conférer un camouflage évolutif aux combattants mais a été rapidement abandonné en raison de son prix.	0.2
+	256 à 275	Mode	Montre universalle	Acier	traducteur universel et outil de camouflage. Quelle que soit l'apparence du porteur, les personnes de son entourage le perçoivent comme normal. 	0.3
+	276 à 300	Mode	Chaussures autolaçantes	Tissu	Les chausures autolaçantes ont été récemment mises à la mode par les habitants de la première Terre du continuum temporel Tiusrup. Ces chaussures s'adaptent à la taille du pied du porteur et analysent son état  physique pour proposer le meilleur maintien possible. Bonus de course.	0.4
+	301 à 320	Outils	Hoverboard	Gravitique	L'hoverboard est un moyen de transport alliant style et praticité, il s'agit d'un skateboard flottant au dessus du sol à environ 5 à 7 centimèrtes. Certains sportifs en ont fait un objet très à la mode, lié à un style de vie mais il est un peu passé de mode aujourd'hui. Seul les plus accros utilisent encore l'hoverboard et s'accrochent aux valeurs désuètes qui lui sont liées. Ils vivent en communautés itinérantes et s'appellent entre eux les Purs.	3
