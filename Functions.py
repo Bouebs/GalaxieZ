@@ -1,6 +1,18 @@
 import sys,time
 from Carac import *
 
+
+def delay_print(s, ts=0.04):
+    f = open("fast_print.txt")
+    if f.readlines()[0] == "True":
+        print(s)
+    else:
+        for c in s:
+            sys.stdout.write(c)
+            sys.stdout.flush()
+            time.sleep(ts)
+
+
 def Input(ListInputPossibles):
     print(ListInputPossibles)
 

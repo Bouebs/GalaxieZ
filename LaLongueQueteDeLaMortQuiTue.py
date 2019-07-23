@@ -11,27 +11,13 @@ from Functions import *
 # sys.stdout = UTF8Writer(sys.stdout)
 
 Perso=Personnage()
-fast_print = False
 
+fast_print_file = open("fast_print.txt", "w")
 if "-f" in sys.argv:
-    print("coucou")
-    fast_print = True
-    ts_ini = 0.0000001
-    ts_logo = 0.0000001
+    fast_print_file.write("True")
 else :
-    ts_ini = 0.04
-    ts_logo = 0.01
-
-
-def delay_print(s, ts=ts_ini):
-    if fast_print:
-        print(s)
-    else:
-        for c in s:
-            sys.stdout.write(c)
-            sys.stdout.flush()
-        time.sleep(ts)
-
+    fast_print_file.write("False")
+fast_print_file.close()
 
 
 class QuFormatter(string.Formatter):
@@ -117,7 +103,7 @@ delay_print("""
    ,*(@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&&%%%%%%%&&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#,   
   ,%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/.   
   *&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,    
-""", ts_logo)
+""", ts=0.0001)
 
 delay_print("""
 
@@ -160,9 +146,11 @@ delay_print("""\n Quelle est ta race?\n""")
 global Race
 RaceChoisie=False
 while not RaceChoisie :
-    print("""Les races existantes sont \n {}\n""".format(list(Races[Regne].keys())))
+    list_races = list(Races[Regne].keys())
+    list_races.remove("Description")
+    print("""Les races existantes sont \n {}\n""".format(list_races))
     print("\n Entrer le nom de la race pour obtenir une description\n")
-    RaceTmp=Input(list(Races[Regne].keys()))
+    RaceTmp = Input(list_races)
     print("{}.".format(Races[Regne][RaceTmp]["Description"]))
     print("Bonus")
     for C in Races[Regne][RaceTmp]["Bonus"].keys():

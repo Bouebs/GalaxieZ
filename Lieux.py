@@ -6,6 +6,8 @@ import random
 import Metier
 import SexeList
 import ExcuseList
+from LaLongueQueteDeLaMortQuiTue import delay_print
+
 
 def Terminal(P):
     delay_print("""Tu t'approche du terminal multimodal. Dès que tu le touche, celui-ci s'active et une voix dit : "identification de l'individu". Après un très bref délai, la voix reprend : "votre numéro pôle emploi est le numéro Z{}.
