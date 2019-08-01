@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
+import io
+
 
 def RacesL():
     Races=dict()
 
     Regne="Minéral"
 
-    f=open("Galaxie Z - {}.tsv".format(Regne))
+    f = open("Galaxie Z - {}.tsv".format(Regne), 'r', encoding='utf8')
+
     lines=f.readlines()
 
     Races[Regne]=dict()

@@ -1,6 +1,8 @@
+import io
 
 
 def LoadFins():
+    f = open("Galaxie Z - {}.tsv".format(Regne), 'r', encoding='utf8')
     f=open("Galaxie Z - Fins aléatoires 2078.tsv",encoding="utf-8")
     ListFins=[]
     for line in f.readlines()[1:]:

@@ -3,7 +3,7 @@
 
 def SexeL():
     Sexes=dict()
-    f=open("Galaxie Z - Sexes.tsv")
+    f = open("Galaxie Z - Sexes.tsv", 'r', encoding='utf8')
     lines=f.readlines()
     for line in lines[1:]:
         ls=line.split("\t")

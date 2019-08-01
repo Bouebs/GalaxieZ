@@ -3,7 +3,7 @@
 def ReadCompList():
     CompList=dict()
     AllComp=[]
-    f=open("Compétences.tsv")
+    f = open("Compétences.tsv".format(Regne), 'r', encoding='utf8')
     lines=f.readlines()[1:]
     for line in lines:
         ls=line.split("\t")

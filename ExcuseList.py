@@ -2,7 +2,7 @@
 
 def ExcuseL():
     Ex=[]
-    f=open("Galaxie Z - Excuses.tsv")
+    f = open("Galaxie Z - Excuses.tsv".format(Regne), 'r', encoding='utf8')
     lines=f.readlines()
     f.close()
     for line in lines[1:]:
