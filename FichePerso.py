@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from Carac import *
-from Competences import *
+from Textes.ReadTextes import *
 from Functions import *
 import string
 class PartialFormatter(string.Formatter):
@@ -58,7 +58,7 @@ def PrintFichePerso(Perso):
 
                 strL = strL + " {:33s}".format(id[1] + " : " + str(PersoAsDict[id[0]]))
                 First = True
-                if Perso.Mirroir:
+                if Perso.Miroir:
                     strL += "|{:27s}|".format(' ')
                 else :
                     strL += " {:27s}|".format(' ')
@@ -67,7 +67,7 @@ def PrintFichePerso(Perso):
 
     if not First:
         strL = strL + " {:33s}".format(" ")
-        if Perso.Mirroir:
+        if Perso.Miroir:
             strL += "|{:27s}|".format(' ')
         else :
             strL += " {:27s}|".format(' ')
@@ -75,14 +75,14 @@ def PrintFichePerso(Perso):
         print(strL)
         iLine += 1
         First=True
-    if Perso.Mirroir :
+    if Perso.Miroir :
         while iLine < 14 :
             if iLine == 5:
-                print("| {:73s}|{:27s}|".format("", "COLLEZ"))
+                print("| {:73s}|{:^27s}|".format("", "COLLEZ"))
             elif iLine == 7:
-                print("| {:73s}|{:27s}|".format("", "VOTRE PORTRAIT"))
+                print("| {:73s}|{:^27s}|".format("", "VOTRE PORTRAIT"))
             elif iLine == 9:
-                print("| {:73s}|{:27s}|".format("", "ICI"))
+                print("| {:73s}|{:^27s}|".format("", "ICI"))
             else:
                 print("| {:73s}|{:27s}|".format("", ""))
             iLine += 1
@@ -101,7 +101,7 @@ def PrintFichePerso(Perso):
     # if "Age" in PersoAsDict.keys() or "Sexe" in PersoAsDict.keys():
     #     print(StrAge+StrSex)
 
-    if not Perso.Mirroir:
+    if not Perso.Miroir:
         print("|                                                                                                      |")
     if "Descr" in PersoAsDict.keys():
         print(fmt.format("""| BIOGRAPHIE __________________________________________________________________________________________|"""))

@@ -1,10 +1,10 @@
  # -*- coding: utf-8 -*-
 import string, re,time,sys
 from FichePerso import *
-from Perso import *
-from Races import *
+from Perso import Personnage
+from Textes.ReadTextes import *
 import Carac
-from Lieux import Terminal, Table, TOilettes, Malle
+from Lieux import Terminal, Table, TOilettes, Malle, Miroir
 from Functions import *
 # from kitchen.text.converters import getwriter
 # UTF8Writer = getwriter('utf8')
@@ -195,8 +195,8 @@ Le lit sur lequel tu t'es réveillé est dans un coin de la pièce. A côté du 
 if Regne=="Animal":
     print("""
 ________________________________________________________________
-|                 _________        |            ||             |
-|                  Mirroir         |   Table    ||             |
+|                 ________         |            ||             |
+|                  Miroir          |   Table    ||             |
 |                                  |            ||             |
 |                                  |____________||             |
 |___                                             |    Lit      |
@@ -227,8 +227,8 @@ ________________________________________________________________
 elif Regne=="Minéral":
     print("""
 ________________________________________________________________
-|                 _________        |            ||             |
-|                  Mirroir         |   Table    ||             |
+|                 ________         |            ||             |
+|                  Miroir          |   Table    ||             |
 |                                  |            ||             |
 |                                  |____________||             |
 |___                                             |    Lit      |
@@ -259,8 +259,8 @@ ________________________________________________________________
 if Regne=="Végétal":
     print("""
 ________________________________________________________________
-|                 _________        |            ||             |
-|                  Mirroir         |   Table    ||             |
+|                 ________         |            ||             |
+|                  Miroir          |   Table    ||             |
 |___________                       |            ||             |
 |           \                      |____________||             |
 |  cabanon  |                                    |    Lit      |
@@ -293,7 +293,7 @@ ________________________________________________________________
 delay_print("Où souhaites tu aller?\n")
 #ListLieux=["Toilettes","Table","Terminal","Porte"]
 
-ListLieux = [Toilettes, "Porte", "Table", "Terminal", "Malle", "Mirroir"]
+ListLieux = [Toilettes, "Porte", "Table", "Terminal", "Malle", "Miroir"]
 Completed=dict()
 for entry in ListLieux:
     Completed[entry]=False
@@ -301,7 +301,7 @@ for entry in ListLieux:
 while not all(list(Completed.values())):
     Lieu=Input(ListLieux)
     if Completed[Lieu]:
-        if Lieu == "Mirroir":
+        if Lieu == "Miroir":
             delay_print("Tu te regardes dans le mirroir. Tu n'as pas changé depuis tout à l'heure")
         else:
             print("Plus rien à découvrir ici.\n")
@@ -319,9 +319,9 @@ while not all(list(Completed.values())):
         Terminal(Perso)
         Completed["Terminal"]=True
 
-    if Lieu == "Mirroir":
-        Mirroir(Perso)
-        Completed["Mirroir"] = True
+    if Lieu == "Miroir":
+        Miroir(Perso)
+        Completed["Miroir"] = True
     if Lieu=="Malle":
         Malle(Perso)
         Completed["Malle"]=True

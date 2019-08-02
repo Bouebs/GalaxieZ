@@ -14,4 +14,4 @@ class Personnage:
         CaracBase = InitializeCarac(None)
         Carac = InitializeCarac(None)
         Comp = None
-        Mirroir = False
+        self.Miroir = False

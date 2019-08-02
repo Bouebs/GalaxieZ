@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
 from Functions import *
-from Competences import *
+from Textes.ReadTextes import *
 import Carac,sys
-import random
-import Metier
-import SexeList
-import ExcuseList
-
 
 def Terminal(P):
     delay_print("""Tu t'approche du terminal multimodal. Dès que tu le touche, celui-ci s'active et une voix dit : "identification de l'individu". Après un très bref délai, la voix reprend : "votre numéro pôle emploi est le numéro Z{}.
@@ -247,18 +242,18 @@ def Malle(Perso):
     delay_print("Tu ouvres la malle, il n'y a rien dedans. Pas de chance. Ou alors c'est peut-être que les producteurs du jeu ont coupé les financements et que cela n'a pas permis au développeurs de finir ce jeu comme il faut et d'implémenter le choix d'un équipement... ou les développeurs sont peut être simplement des faignasses.\n")
 
         
-def Mirroir(Perso):
-    if Perso.Mirroir:
+def Miroir(Perso):
+    if Perso.Miroir:
         delay_print("Tu te regardes dans le mirroir. Tu n'as pas changé depuis tout à l'heure")
         return
     delay_print("Tu te regardes dans le mirroir. C'est bon tu es bien toi-même.")
 
     print("""
 Prend une feuille de papier. Découpe un rectangle de cette dimension : """)
-    print("{28} ".format("_"))
+    print("{:28} ".format("_____________________________"))
     for i in range(13):
-        print("|{27}|".format(""))
-    print("|{27}| ".format("_"))
-    Perso.Mirroir = True
+        print("|{:27}|".format(""))
+    print("|{:27}| ".format("____________________________"))
+    Perso.Miroir = True
 
     print("Sur le rectangle que tu viens de découper, dessine le portrait de ton personnage.")
