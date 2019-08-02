@@ -1,7 +1,7 @@
 
 
 def GetListMetiers():
-    f = open("Métiers.tsv".format(Regne), 'r', encoding='utf8')
+    f = open("Métiers.tsv", 'r', encoding='utf8')
     lines=f.readlines()
     Metiers=dict()
     for line in lines[1:]:

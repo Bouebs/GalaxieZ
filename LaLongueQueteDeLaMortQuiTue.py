@@ -1,10 +1,10 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
 import string, re,time,sys
 from FichePerso import *
 from Perso import *
 from Races import *
 import Carac
-from Lieux import *
+from Lieux import Terminal, Table, TOilettes, Malle
 from Functions import *
 # from kitchen.text.converters import getwriter
 # UTF8Writer = getwriter('utf8')

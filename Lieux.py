@@ -6,7 +6,6 @@ import random
 import Metier
 import SexeList
 import ExcuseList
-from LaLongueQueteDeLaMortQuiTue import delay_print
 
 
 def Terminal(P):
@@ -198,7 +197,7 @@ Alors que tu jettes tes rebus dans le composteur, une voix synhétique venue de 
                 if len(SexeL[SexeTmp])>3:
                     print(SexeL[SexeTmp])
                 else:
-                    print("Comment ça tu ne sais pas ce qu'est un (une) {} {}? Soit t'es un boulet, ou alors peut-être que cette description manque car {}.".format(Perso.RaceInfo["SexeType"],SexeTmp,ExcuseL[random.randint(0,len(ExcuseL))]))
+                    print("Comment ça tu ne sais pas ce qu'est un (une) {} {}? Soit t'es un boulet, ou alors peut-être que cette description manque car {}.".format(Perso.RaceInfo["SexeType"], SexeTmp, ExcuseL[random.randint(0, len(ExcuseL) - 1)]))
                 print("Veux tu choisir {} comme {}?".format(SexeTmp,Perso.RaceInfo["SexeType"]))
                 if Input(["o","n"])=="o":
                     Perso.SexeType=Perso.RaceInfo["SexeType"]
@@ -218,7 +217,7 @@ Alors que tu jettes tes rebus dans le composteur, une voix synhétique venue de 
 
 Pour information les valeurs indiqués sont les valeurs avant la prise en compte des modificateurs dûs à la race, l'age... \n
 Veux tu retirer aléatoirement tes caractéristiques?
-Attention la valeur maximale que tu pourra obtenir sera diminuée de 2.""")
+Attention la valeur maximale totale que tu pourra obtenir sera diminuée de 2.""")
         Retirer=Input(["o","n"])
         base-=2
 
