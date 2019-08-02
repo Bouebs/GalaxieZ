@@ -15,8 +15,10 @@ Perso=Personnage()
 fast_print_file = open("fast_print.txt", "w")
 if "-f" in sys.argv:
     fast_print_file.write("True")
+    Perso.fast = True
 else :
     fast_print_file.write("False")
+    Perso.fast = False
 fast_print_file.close()
 
 
@@ -113,17 +115,18 @@ Tu apercois sur le sol une forme de fractale légèrement bleutée. Ta chute sem
 C'est à ce moment que tu te réveille.
 
 
-Alors que tu cherche à interpréter cet étrange cauchemar, une peur soudaine te saisie. Où es tu? 
+Alors que tu cherches à interpréter cet étrange cauchemar, une peur soudaine te saisie. Où es tu? 
 Où étais tu lorsque tu t'es endormi? 
 Où étais tu hier...                                                 
 ... la semaine dernière...                                         
 ... il y a 6 mois...                                           
 ... il y a 6 siècles???                                
 Ton esprit est très embrouillé. Tu n'as plus aucun souvenir.                                   
-Tes sens s'activent néenmoins peu un peu.
+Tes sens s'activent néenmoins peu à peu.
 
 """)
-time.sleep(2)
+if not Perso.fast:
+    time.sleep(2)
 print("""De quel règne es-tu originaire?""")
 Races=RacesL()
 RegneChoisie=False
