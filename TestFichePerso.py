@@ -37,10 +37,8 @@ Perso.Race="Crystallim"
 Perso.Regne="Minéral"
 Perso.Age=2
 Perso.CaracBase=Carac.InitializeCarac(100)
-print(Perso.CaracBase)
 UpdateCarac(Perso)
-print(Perso.Carac)
-sys.exit()
+Perso.Mirroir = False
 Perso.Sexe="Masculin"
 Perso.SexeType="Sex"
 #Perso.Carac=TOilettes("Mineral")

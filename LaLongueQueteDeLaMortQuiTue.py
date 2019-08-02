@@ -187,13 +187,13 @@ elif Regne=="Minéral":
     Toilettes="Sonde"
     Texte="une multi micro-sonde électronique tomographique"
 delay_print("""Tu te trouve dans une pièce carrée d'environ cinq mètres par cinq. De l'ensemble du plafond se dégage une lumière parfaitement homogène et bleutée.  
-Le lit sur lequel tu t'es réveillé est dans un coin de la pièce. A côté du lit, il y a une table Louis XV en accajou céleste. Il n'y a rien sur la table mais il y a deux tiroirs avec une poignée en marbre rose. Au pied du lit, il y a une malle métallique.  Sur le mur opposé à la table, il y a un terminal numérique comprenant un écran et un casque synaptique. Dans le coin opposé il y a une porte. Enfin à droite de la porte il y a {}.\n""".format(Texte))
+Le lit sur lequel tu t'es réveillé est dans un coin de la pièce. A côté du lit, il y a une table Louis XV en accajou céleste. Il n'y a rien sur la table mais il y a deux tiroirs avec une poignée en marbre rose. A côté de la table, il y a un mirroir. Au pied du lit, il y a une malle métallique.  Sur le mur opposé à la table, il y a un terminal numérique comprenant un écran et un casque synaptique. Dans le coin opposé il y a une porte. Enfin à droite de la porte il y a {}.\n""".format(Texte))
 
 if Regne=="Animal":
     print("""
 ________________________________________________________________
-|                                  |            ||             |
-|                                  |   Table    ||             |
+|                 _________        |            ||             |
+|                  Mirroir         |   Table    ||             |
 |                                  |            ||             |
 |                                  |____________||             |
 |___                                             |    Lit      |
@@ -224,8 +224,8 @@ ________________________________________________________________
 elif Regne=="Minéral":
     print("""
 ________________________________________________________________
-|                                  |            ||             |
-|                                  |   Table    ||             |
+|                 _________        |            ||             |
+|                  Mirroir         |   Table    ||             |
 |                                  |            ||             |
 |                                  |____________||             |
 |___                                             |    Lit      |
@@ -256,8 +256,8 @@ ________________________________________________________________
 if Regne=="Végétal":
     print("""
 ________________________________________________________________
-|                                  |            ||             |
-|                                  |   Table    ||             |
+|                 _________        |            ||             |
+|                  Mirroir         |   Table    ||             |
 |___________                       |            ||             |
 |           \                      |____________||             |
 |  cabanon  |                                    |    Lit      |
@@ -290,7 +290,7 @@ ________________________________________________________________
 delay_print("Où souhaites tu aller?\n")
 #ListLieux=["Toilettes","Table","Terminal","Porte"]
 
-ListLieux=[Toilettes,"Porte","Table","Terminal","Malle"]
+ListLieux = [Toilettes, "Porte", "Table", "Terminal", "Malle", "Mirroir"]
 Completed=dict()
 for entry in ListLieux:
     Completed[entry]=False
@@ -298,7 +298,10 @@ for entry in ListLieux:
 while not all(list(Completed.values())):
     Lieu=Input(ListLieux)
     if Completed[Lieu]:
-        print("Plus rien à découvrir ici.\n")
+        if Lieu == "Mirroir":
+            delay_print("Tu te regardes dans le mirroir. Tu n'as pas changé depuis tout à l'heure")
+        else:
+            print("Plus rien à découvrir ici.\n")
         delay_print("Où souhaites tu aller?\n")
         continue
     if Lieu== Toilettes :
@@ -312,7 +315,10 @@ while not all(list(Completed.values())):
     if Lieu=="Terminal":
         Terminal(Perso)
         Completed["Terminal"]=True
-        
+
+    if Lieu == "Mirroir":
+        Mirroir(Perso)
+        Completed["Mirroir"] = True
     if Lieu=="Malle":
         Malle(Perso)
         Completed["Malle"]=True

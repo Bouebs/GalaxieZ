@@ -43,6 +43,7 @@ def PrintFichePerso(Perso):
 
     ListIdType=[["Nom","Nom"],["Age","Age"],["Planete","Planète d'origine"],["Sexe","SexeType"],["Regne","Règne"],["Race","Race"]]
     First=True
+    iLine = 0
     for id in ListIdType:
 
         if id[0] in PersoAsDict.keys():
@@ -50,19 +51,41 @@ def PrintFichePerso(Perso):
                 id[1]=Perso.SexeType
             if First:
 
-                strL="| {:50s}".format(id[1]+" : "+str(PersoAsDict[id[0]]))
+                strL = "| {:39s}".format(id[1] + " : " + str(PersoAsDict[id[0]]))
                 First=False
                 continue
             else:
 
-
-                strL=strL+" {:50s}|".format(id[1]+" : "+str(PersoAsDict[id[0]]))
+                strL = strL + " {:33s}".format(id[1] + " : " + str(PersoAsDict[id[0]]))
+                First = True
+                if Perso.Mirroir:
+                    strL += "|{:27s}|".format(' ')
+                else :
+                    strL += " {:27s}|".format(' ')
                 print(strL)
-                First=True
+                iLine += 1
+
     if not First:
-        strL=strL+" {:50s}|".format(" ")
+        strL = strL + " {:33s}".format(" ")
+        if Perso.Mirroir:
+            strL += "|{:27s}|".format(' ')
+        else :
+            strL += " {:27s}|".format(' ')
+
         print(strL)
+        iLine += 1
         First=True
+    if Perso.Mirroir :
+        while iLine < 14 :
+            if iLine == 5:
+                print("| {:73s}|{:27s}|".format("", "COLLEZ"))
+            elif iLine == 7:
+                print("| {:73s}|{:27s}|".format("", "VOTRE PORTRAIT"))
+            elif iLine == 9:
+                print("| {:73s}|{:27s}|".format("", "ICI"))
+            else:
+                print("| {:73s}|{:27s}|".format("", ""))
+            iLine += 1
     # if "Nom" in PersoAsDict.keys():
     #     print(fmt.format("| Nom : {Nom:50s} Planète d'origine : {Planete:22s} |",**PersoAsDict))
     # print(fmt.format("| Règne : {Regne:25s}   Race : {Race:18s}                                       |",**PersoAsDict))
@@ -78,9 +101,8 @@ def PrintFichePerso(Perso):
     # if "Age" in PersoAsDict.keys() or "Sexe" in PersoAsDict.keys():
     #     print(StrAge+StrSex)
 
-    
-
-    print("|                                                                                                      |")
+    if not Perso.Mirroir:
+        print("|                                                                                                      |")
     if "Descr" in PersoAsDict.keys():
         print(fmt.format("""| BIOGRAPHIE __________________________________________________________________________________________|"""))
         istr=0

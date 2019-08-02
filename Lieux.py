@@ -245,4 +245,20 @@ Précision 10""")
 
 def Malle(Perso):
     delay_print("Tu ouvres la malle, il n'y a rien dedans. Pas de chance. Ou alors c'est peut-être que les producteurs du jeu ont coupé les financements et que cela n'a pas permis au développeurs de finir ce jeu comme il faut et d'implémenter le choix d'un équipement... ou les développeurs sont peut être simplement des faignasses.\n")
+
         
+def Mirroir(Perso):
+    if Perso.Mirroir:
+        delay_print("Tu te regardes dans le mirroir. Tu n'as pas changé depuis tout à l'heure")
+        return
+    delay_print("Tu te regardes dans le mirroir. C'est bon tu es bien toi-même.")
+
+    print("""
+Prend une feuille de papier. Découpe un rectangle de cette dimension : """)
+    print("{28} ".format("_"))
+    for i in range(13):
+        print("|{27}|".format(""))
+    print("|{27}| ".format("_"))
+    Perso.Mirroir = True
+
+    print("Sur le rectangle que tu viens de découper, dessine le portrait de ton personnage.")
