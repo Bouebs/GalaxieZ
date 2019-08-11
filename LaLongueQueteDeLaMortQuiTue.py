@@ -289,7 +289,12 @@ ________________________________________________________________
 
 """)
 
-
+if Regne == "Minéral":
+    delay_print("Tu rensens un besoin pressant d'aller réactiver ta structure cristalline à la micro-sonde électronique.")
+elif Regne == "Animal":
+    delay_print("Tu as très envie d'aller aux toilettes.")
+elif Regne == "Végétal":
+    delay_print("Tes extremités organiques ont beaucoup trop poussées. Tu aura du mal à te mouvoir tant que tu n'aura pas pris soin de ta taille.")
 delay_print("Où souhaites tu aller?\n")
 #ListLieux=["Toilettes","Table","Terminal","Porte"]
 
@@ -300,6 +305,18 @@ for entry in ListLieux:
 
 while not all(list(Completed.values())):
     Lieu=Input(ListLieux)
+
+    if ((not Completed[Toilettes]) and
+        Lieu != Toilettes):
+        if Regne == "Minéral":
+            delay_print("Ton envie d'aller réactiver ta structure cristalline est vraiment trop pressante.")
+        elif Regne == "Végétal":
+            delay_print("Ton besoin de taille est vraiment trop pressante.")
+        elif Regne == "Animal":
+            delapy_print("Ton envie de te soulager est vraiment trop pressante.")
+        delay_print("Où veux tu aller?\n")
+        continue
+
     if Completed[Lieu]:
         if Lieu == "Miroir":
             delay_print("Tu te regardes dans le mirroir. Tu n'as pas changé depuis tout à l'heure")

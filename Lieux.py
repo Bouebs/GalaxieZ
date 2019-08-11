@@ -9,7 +9,7 @@ def Terminal(P):
     CompList=ReadCompList()
     print("Quel est ton métier?")
     print("Choisir un métier te donne un niveau 2 (sur un maximum de 10) pour 10 compétences") 
-    Metiers=Metier.GetListMetiers()
+    Metiers = GetListMetiers()
     MetierChoisie=False
     while not MetierChoisie:
         print("\n Entrer le nom d'un métier pour obtenir une description de ce métier ainsi que pour connaître les compétences associées.")
@@ -150,9 +150,9 @@ def Table(Perso):
     return Info
 
 def TOilettes(Regne,Perso):
-    ExcuseL=ExcuseList.ExcuseL()
+    ExcuseL = ExcuseList()
 
-    SexeL=SexeList.SexeL()
+    SexeL = SexeList()
     if Regne=="Animal":
         delay_print("Une envie pressante te pousse à aller visiter les toilettes.\n")
         print("Quel est ton sexe?\n")

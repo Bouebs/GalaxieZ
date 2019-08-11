@@ -2,7 +2,7 @@
 import io
 
 
-def SexeL():
+def SexeList():
     Sexes = dict()
     f = open("Textes/Galaxie Z - Sexes.tsv", 'r', encoding='utf8')
     lines = f.readlines()
@@ -109,7 +109,7 @@ def FindCompInCompList(comp, complist):
     return False
 
 
-def ExcuseL():
+def ExcuseList():
     Ex = []
     f = open("Textes/Galaxie Z - Excuses.tsv", 'r', encoding='utf8')
     lines = f.readlines()
