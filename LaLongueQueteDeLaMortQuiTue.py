@@ -304,7 +304,7 @@ for entry in ListLieux:
     Completed[entry]=False
 
 while not all(list(Completed.values())):
-    Lieu=Input(ListLieux)
+    Lieu = Input(ListLieux, perso=Perso, type="Perception")
 
     if ((not Completed[Toilettes]) and
         Lieu != Toilettes):

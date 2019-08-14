@@ -101,7 +101,10 @@ def Table(Perso):
     Rep="lll"
 
     while Rep!="p":
-        print("""Veux tu ouvrir le tiroir de gauche (g), le tiroir de droite (d), ou partir (p)""")
+        speed = 0.0001
+        delay_print("""Veux tu ouvrir""", ts=speed)
+        delay_print("""le tiroir de gauche (g), le tiroir de droite (d)""", ts=speed, perso=Perso, type="Perception")
+        delay_print(""", ou partir (p)""", ts=speed)
         Rep=Input(["g","d","p"])
         
         if Rep=="g":
@@ -113,7 +116,7 @@ def Table(Perso):
                 delay_print(""" mais il n'y a plus rien dedans.\n""")
                 continue
             delay_print("""Tu ouvre le tiroir de droite.""", perso=Perso, type="vitesse")
-            delay_print(""" A l'interieur, tu trouve un pièce d'identité numérique.""")
+            delay_print(""" A l'interieur, tu trouve un pièce d'identité numérique.""", perso=Perso, type="Perception")
             Info=dict()
             Info["Nom"]="111111111111111111111111111111111111111111111111111111111111"
             while len(Info["Nom"])>15:

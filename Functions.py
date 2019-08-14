@@ -1,5 +1,7 @@
 import sys,time
 from Carac import *
+from _ast import If
+import random
 
 
 def delay_print(s, ts=0.04, perso=None, type=None):
@@ -19,7 +21,7 @@ def delay_print(s, ts=0.04, perso=None, type=None):
             delay_print("Tu te poses ces questions jusqu'au moment où tu meurs de soif.\n")
             time.sleep(1)
             print("GAME OVER")
-            time.sleep(4)
+            time.sleep(6)
             sys.exit()
 
         if  v < 20 :
@@ -28,20 +30,37 @@ def delay_print(s, ts=0.04, perso=None, type=None):
 
     if f.readlines()[0] == "True":
         print(s)
+    elif type in ["Perception, perception"] and Perso.Carac["Perception"] < 20:
+        proba = float(Perso.Carac["Perception"]) / 20
+        if Perso.Carac["Perception"] == 0:
+            delay_print("Tu ne vois rien autour de toi. Il t'es impossible de te repérer. Tu moeurs lentement en te demandans comment tu as réussi à accomplir autant de choses jusqu'à présent sans rien voir ni sentir...")
+            print("GAME OVER")
+            time.sleep(6)
+            sys.exit()
+        for c in s:
+            if random.random(1) < proba:
+                caractere = c
+            else:
+                caractere = "#"
+            sys.stdout.write(caractere)
+            sys.stdout.flush()
+            time.sleep(ts)
+
     else:
         for c in s:
+
             sys.stdout.write(c)
             sys.stdout.flush()
             time.sleep(ts)
 
 
-def Input(ListInputPossibles):
-    print(ListInputPossibles)
+def Input(ListInputPossibles, perso=None, type=None):
+    delay_print(ListInputPossibles, ts=0.01, perso=perso , type=type)
 
     rep= input() 
     while rep not in ListInputPossibles:
         print("Réponse non comprise")
-        print("Les réponses possibles sont:")
+        delay_print(ListInputPossibles, ts=0.01, perso=perso , type=type)
         print(ListInputPossibles)
         rep=input()
     return rep
