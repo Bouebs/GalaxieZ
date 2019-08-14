@@ -4,7 +4,7 @@ from Textes.ReadTextes import *
 import Carac,sys
 
 def Terminal(P):
-    delay_print("""Tu t'approche du terminal multimodal. Dès que tu le touche, celui-ci s'active et une voix dit : "identification de l'individu". Après un très bref délai, la voix reprend : "votre numéro pôle emploi est le numéro Z{}.
+    delay_print("""Tu arrive au terminal multimodal. Dès que tu le touche, celui-ci s'active et une voix dit : "identification de l'individu". Après un très bref délai, la voix reprend : "votre numéro pôle emploi est le numéro Z{}.
     \n""".format(random.randint(0,1000000000)))        
     CompList=ReadCompList()
     print("Quel est ton métier?")
@@ -105,12 +105,15 @@ def Table(Perso):
         Rep=Input(["g","d","p"])
         
         if Rep=="g":
-            delay_print("""Tu ouvre le tiroir de gauche mais celui ci est vide.\n""")
+            delay_print("""Tu ouvre le tiroir de gauche""", perso=Perso, type="vitesse")
+            delay_print(""" mais celui ci est vide.\n""")
         elif Rep=="d":
             if Info!=None:
-                delay_print("""Tu ouvre le tiroir de droite mais il n'y a plus rien dedans.\n""")
+                delay_print("""Tu ouvre le tiroir de droite""", perso=Perso, type="vitesse")
+                delay_print(""" mais il n'y a plus rien dedans.\n""")
                 continue
-            delay_print("""Tu ouvre le tiroir de droite. A l'interieur, tu trouve un pièce d'identité numérique.""")
+            delay_print("""Tu ouvre le tiroir de droite.""", perso=Perso, type="vitesse")
+            delay_print(""" A l'interieur, tu trouve un pièce d'identité numérique.""")
             Info=dict()
             Info["Nom"]="111111111111111111111111111111111111111111111111111111111111"
             while len(Info["Nom"])>15:
@@ -239,7 +242,8 @@ Précision 10""")
 
 
 def Malle(Perso):
-    delay_print("Tu ouvres la malle, il n'y a rien dedans. Pas de chance. Ou alors c'est peut-être que les producteurs du jeu ont coupé les financements et que cela n'a pas permis au développeurs de finir ce jeu comme il faut et d'implémenter le choix d'un équipement... ou les développeurs sont peut être simplement des faignasses.\n")
+    delay_print("""Tu ouvres la malle""", perso=Perso, type="vitesse")
+    delay_print(", il n'y a rien dedans. Pas de chance. Ou alors c'est peut-être que les producteurs du jeu ont coupé les financements et que cela n'a pas permis au développeurs de finir ce jeu comme il faut et d'implémenter le choix d'un équipement... ou les développeurs sont peut être simplement des faignasses.\n")
 
         
 def Miroir(Perso):

@@ -317,6 +317,7 @@ while not all(list(Completed.values())):
         delay_print("Où veux tu aller?\n")
         continue
 
+    delay_print("Tu te déplace vers le (la) {}".format(Lieu), perso=Perso, type="vitesse")
     if Completed[Lieu]:
         if Lieu == "Miroir":
             delay_print("Tu te regardes dans le mirroir. Tu n'as pas changé depuis tout à l'heure")
