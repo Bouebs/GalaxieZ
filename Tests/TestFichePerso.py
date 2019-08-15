@@ -2,8 +2,7 @@ import sys
 from FichePerso import *
 from Perso import *
 from Lieux  import *
-from Competences  import *
-from Races import *
+from Textes.ReadTextes import *
 from Functions import *
 import random,Carac
 
