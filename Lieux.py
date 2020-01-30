@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 from Functions import *
 from Textes.ReadTextes import *
-import Carac,sys
+from Perso import Personnage
+import Carac, sys
 
-def Terminal(P):
+def Terminal(P: Personnage):
     delay_print("""Tu arrive au terminal multimodal. Dès que tu le touche, celui-ci s'active et une voix dit : "identification de l'individu". Après un très bref délai, la voix reprend : "votre numéro pôle emploi est le numéro Z{}.
-    \n""".format(random.randint(0,1000000000)))        
+    \n""".format(random.randint(0,1000000000)), perso= P)
     CompList=ReadCompList()
     print("Quel est ton métier?")
     print("Choisir un métier te donne un niveau 2 (sur un maximum de 10) pour 10 compétences") 
@@ -95,25 +96,24 @@ def Terminal(P):
             if Input(["o","n"])=="n":
                 break
     
-def Table(Perso):
+def Table(Perso: Personnage):
 
     Info=None
     Rep="lll"
 
     while Rep!="p":
-        speed = 0.0001
-        delay_print("""Veux tu ouvrir""", ts=speed)
-        delay_print("""le tiroir de gauche (g), le tiroir de droite (d)""", ts=speed, perso=Perso, type="Perception")
-        delay_print(""", ou partir (p)""", ts=speed)
+        delay_print("""Veux tu ouvrir""", perso=Perso)
+        delay_print("""le tiroir de gauche (g), le tiroir de droite (d)""", perso=Perso, type="Perception")
+        delay_print(""", ou partir (p)""", perso= Perso)
         Rep=Input(["g","d","p"])
         
         if Rep=="g":
             delay_print("""Tu ouvre le tiroir de gauche""", perso=Perso, type="vitesse")
-            delay_print(""" mais celui ci est vide.\n""")
+            delay_print(""" mais celui ci est vide.\n""", perso= Perso, type="Perception")
         elif Rep=="d":
             if Info!=None:
                 delay_print("""Tu ouvre le tiroir de droite""", perso=Perso, type="vitesse")
-                delay_print(""" mais il n'y a plus rien dedans.\n""")
+                delay_print(""" mais il n'y a plus rien dedans.\n""", perso=Perso, type= "Perception")
                 continue
             delay_print("""Tu ouvre le tiroir de droite.""", perso=Perso, type="vitesse")
             delay_print(""" A l'interieur, tu trouve un pièce d'identité numérique.""", perso=Perso, type="Perception")
@@ -134,14 +134,13 @@ def Table(Perso):
 
             Info["Age"]=age
             if Info["Age"]>Perso.RaceInfo['AgeMax']:
-                delay_print("Tu te sens très vieux d'un seul coup. Après tout {} ans est un très bel âge pour un {}. Tu t'effondre mort.\nGAME OVER\n".format(age,Perso.Race))
+                delay_print("Tu te sens très vieux d'un seul coup. Après tout {} ans est un très bel âge pour un {}. Tu t'effondre mort.\nGAME OVER\n".format(age,Perso.Race), perso= Perso)
                 sys.exit()
             if Info["Age"]<Perso.RaceInfo['AgeMin']:
-                delay_print("Certains mystères ne pourront jamais être compris. Comment est ce qu'un {} de seulement {} ans a pu se retrouver ici sans aide? Tu pleure pendant des heures comme un bébé en espérant vainement que quelqu'un vienne s'occuper de toi.\nGAME OVER\n".format(Perso.Race,age))
+                delay_print("Certains mystères ne pourront jamais être compris. Comment est ce qu'un {} de seulement {} ans a pu se retrouver ici sans aide? Tu pleures pendant des heures comme un bébé en espérant vainement que quelqu'un vienne s'occuper de toi.\nGAME OVER\n".format(Perso.Race,age), perso= Perso)
                 sys.exit()
-            print("""A FAIRE!!!!! Ajouter choix de la planète de naissance""")
 
-            delay_print("""En dessous de la pièce d'identité, il y a un carnet de note. En l'ouvrant tu découvre que c'est un journal intime\n""")
+            delay_print("""En dessous de la pièce d'identité, il y a un carnet de note. En l'ouvrant tu découvre que c'est un journal intime\n""", perso=Perso)
             Descr="eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
             lenmax=100
             while len(Descr)>lenmax:
@@ -149,7 +148,7 @@ def Table(Perso):
                 Descr=input()
                 if len(Descr)>lenmax:
                     print("La description est trop longue (maximum {} caractères)\n".format(lenmax))
-            delay_print("Il n'y a rien d'autre dans le tiroir de droite\n")
+            delay_print("Il n'y a rien d'autre dans le tiroir de droite\n", perso= Perso, type="Perception")
             Info["Descr"]=Descr
 
 
@@ -160,7 +159,7 @@ def TOilettes(Regne,Perso):
 
     SexeL = SexeList()
     if Regne=="Animal":
-        delay_print("Une envie pressante te pousse à aller visiter les toilettes.\n")
+        delay_print("Une envie pressante te pousse à aller visiter les toilettes.\n", perso=Perso)
         print("Quel est ton sexe?\n")
         Sexe=Input(["Masculin","Feminin"])
 
@@ -170,8 +169,8 @@ def TOilettes(Regne,Perso):
     ssss
 sss
 floq floq floq.
-""")
-        delay_print("""Une voix synthétique venue de nulle part dit: "analyse d'urine en cours... détermination des capacités."\n Un écran jusqu'alors invisible s'allume alors sur le mur derrière les toilettes.\n""")
+""", perso= Perso)
+        delay_print("""Une voix synthétique venue de nulle part dit: "analyse d'urine en cours... détermination des capacités."\n Un écran jusqu'alors invisible s'allume alors sur le mur derrière les toilettes.\n""", perso=Perso)
 
     elif Regne=="Végétal":
         delay_print("""Comme tes membres ont poussé pendant ton sommeil, tu décides d'aller te faire une petite taille dans le cabanon de jardinage. Un séquateur te permet de te soulager... tchac tchic
@@ -180,11 +179,11 @@ floq floq floq.
 tchac tchac
 
 tchic tchic
-Alors que tu jettes tes rebus dans le composteur, une voix synhétique venue de nulle part dit: "analyse génétique en cours... détermination des capacités."\n Un écran multi-sensoriel qui était jusqu'alors invisible s'allume alors sur un mur du cabanon.\n""")
+Alors que tu jettes tes rebus dans le composteur, une voix synhétique venue de nulle part dit: "analyse génétique en cours... détermination des capacités."\n Un écran multi-sensoriel qui était jusqu'alors invisible s'allume alors sur un mur du cabanon.\n""", perso=Perso)
 
     elif Regne=="Minéral":
         
-        delay_print("""Tu décides d'aller vérifier ton état de santé à l'aide de la micro-sonde électronique tomographique. C'est un modèle dernier cri VEOLIA xd-spx667. Dès que tu t'approche suffisamment de la machine, celle ci se met en route. Une voix synhétique venue de nulle part dit: "analyse en cours veuillez patientez."\n Après quelques secondes d'attente un écran multi-sensoriel qui était jusqu'alors invisible s'allume face à toi.\n""")
+        delay_print("""Tu décides d'aller vérifier ton état de santé à l'aide de la micro-sonde électronique tomographique. C'est un modèle dernier cri VEOLIA xd-spx667. Dès que tu t'approche suffisamment de la machine, celle ci se met en route. Une voix synhétique venue de nulle part dit: "analyse en cours veuillez patientez."\n Après quelques secondes d'attente un écran multi-sensoriel qui était jusqu'alors invisible s'allume face à toi.\n""" ,perso=Perso)
 
     if Regne!="Animal":
         if Perso.RaceInfo["SexeType"]!="non":
@@ -210,9 +209,9 @@ Alors que tu jettes tes rebus dans le composteur, une voix synhétique venue de 
     Retirer="o"
     while Retirer!="n":
         c=Carac.InitializeCarac(base)
-        delay_print("Les informations suivantes s'inscrivent sur l'écran: \n")
+        delay_print("Les informations suivantes s'inscrivent sur l'écran: \n", perso= Perso)
         for entry in list(c.keys()):
-            delay_print("{:15}  :  {:>3}/100\n".format(entry,c[entry]))
+            delay_print("{:15}  :  {:>3}/100\n".format(entry,c[entry]), perso= Perso)
 
         print("""
 
@@ -235,7 +234,7 @@ Précision 10""")
             c[rep[0]]+=pp
             PointsLeft-=pp
             for entry in list(c.keys()):
-                delay_print("{:15}  :  {:>3}/100\n".format(entry,c[entry]))
+                delay_print("{:15}  :  {:>3}/100\n".format(entry,c[entry]), perso= Perso)
 
             print("""Il te reste {} points à répartir\n""".format(PointsLeft))
         except:
@@ -246,14 +245,14 @@ Précision 10""")
 
 def Malle(Perso):
     delay_print("""Tu ouvres la malle""", perso=Perso, type="vitesse")
-    delay_print(", il n'y a rien dedans. Pas de chance. Ou alors c'est peut-être que les producteurs du jeu ont coupé les financements et que cela n'a pas permis au développeurs de finir ce jeu comme il faut et d'implémenter le choix d'un équipement... ou les développeurs sont peut être simplement des faignasses.\n")
+    delay_print(", il n'y a rien dedans. Pas de chance. Ou alors c'est peut-être que les producteurs du jeu ont coupé les financements et que cela n'a pas permis au développeurs de finir ce jeu comme il faut et d'implémenter le choix d'un équipement... ou les développeurs sont peut être simplement des faignasses.\n", perso=Perso)
 
         
 def Miroir(Perso):
     if Perso.Miroir:
-        delay_print("Tu te regardes dans le mirroir. Tu n'as pas changé depuis tout à l'heure")
+        delay_print("Tu te regardes dans le mirroir. Tu n'as pas changé depuis tout à l'heure", perso= Perso)
         return
-    delay_print("Tu te regardes dans le mirroir. C'est bon tu es bien toi-même.")
+    delay_print("Tu te regardes dans le mirroir. C'est bon tu es bien toi-même.", perso= Perso)
 
     print("""
 Prend une feuille de papier. Découpe un rectangle de cette dimension : """)

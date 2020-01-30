@@ -11,7 +11,8 @@ class Personnage:
         Race = None
         Regne= None
         Descr= None
+        self.print_speed = 0
         CaracBase = InitializeCarac(None)
-        Carac = InitializeCarac(None)
+        self.Carac = InitializeCarac(None)
         Comp = None
         self.Miroir = False

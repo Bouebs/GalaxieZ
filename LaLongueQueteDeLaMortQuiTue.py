@@ -12,15 +12,12 @@ from Functions import *
 
 Perso=Personnage()
 
-fast_print_file = open("fast_print.txt", "w")
 if "-f" in sys.argv:
-    fast_print_file.write("True")
-    Perso.fast = True
+    Perso.print_speed = 1
+elif "-ff" in sys.argv :
+    Perso.print_speed =2
 else :
-    fast_print_file.write("False")
-    Perso.fast = False
-fast_print_file.close()
-
+    Perso.print_speed = 0
 
 class QuFormatter(string.Formatter):
     def _quote(self, m):
@@ -97,7 +94,7 @@ delay_print("""
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-""", ts=0.0001)
+""", perso= Perso, ts=0.0001)
 delay_print("""
 
                                                                                                                  
@@ -115,8 +112,8 @@ Où étais tu hier...
 Ton esprit est très embrouillé. Tu n'as plus aucun souvenir.                                   
 Tes sens s'activent néenmoins peu à peu.
 
-""")
-if not Perso.fast:
+""", perso= Perso)
+if not Perso.print_speed == 0:
     time.sleep(2)
 print("""De quel règne es-tu originaire?""")
 Races=RacesL()
@@ -134,7 +131,7 @@ while not RegneChoisie:
 
 Perso.Regne = RegneTmp
 Regne=Perso.Regne
-delay_print("""\n Quelle est ta race?\n""")
+print("""\n Quelle est ta race?\n""")
 
 
 global Race
@@ -166,7 +163,7 @@ while not RaceChoisie :
         print("""\n Quelle est ta race?\n""")
 #if Regne = 
 
-delay_print(Perso.RaceInfo["Intro"])
+delay_print(Perso.RaceInfo["Intro"], perso= Perso)
 if Perso.Race=="Corayy":
     print("\n")
     sys.exit()
@@ -181,7 +178,7 @@ elif Regne=="Minéral":
     Toilettes="Sonde"
     Texte="une multi micro-sonde électronique tomographique"
 delay_print("""Tu te trouve dans une pièce carrée d'environ cinq mètres par cinq. De l'ensemble du plafond se dégage une lumière parfaitement homogène et bleutée.  
-Le lit sur lequel tu t'es réveillé est dans un coin de la pièce. A côté du lit, il y a une table Louis XV en accajou céleste. Il n'y a rien sur la table mais il y a deux tiroirs avec une poignée en marbre rose. A côté de la table, il y a un mirroir. Au pied du lit, il y a une malle métallique.  Sur le mur opposé à la table, il y a un terminal numérique comprenant un écran et un casque synaptique. Dans le coin opposé il y a une porte. Enfin à droite de la porte il y a {}.\n""".format(Texte))
+Le lit sur lequel tu t'es réveillé est dans un coin de la pièce. A côté du lit, il y a une table Louis XV en accajou céleste. Il n'y a rien sur la table mais il y a deux tiroirs avec une poignée en marbre rose. A côté de la table, il y a un mirroir. Au pied du lit, il y a une malle métallique.  Sur le mur opposé à la table, il y a un terminal numérique comprenant un écran et un casque synaptique. Dans le coin opposé il y a une porte. Enfin à droite de la porte il y a {}.\n""".format(Texte), perso= Perso)
 
 if Regne=="Animal":
     print("""
@@ -281,12 +278,12 @@ ________________________________________________________________
 """)
 
 if Regne == "Minéral":
-    delay_print("Tu rensens un besoin pressant d'aller réactiver ta structure cristalline à la micro-sonde électronique.")
+    delay_print("Tu rensens un besoin pressant d'aller réactiver ta structure cristalline à la micro-sonde électronique.", perso= Perso)
 elif Regne == "Animal":
-    delay_print("Tu as très envie d'aller aux toilettes.")
+    delay_print("Tu as très envie d'aller aux toilettes.", perso= Perso)
 elif Regne == "Végétal":
-    delay_print("Tes extremités organiques ont beaucoup trop poussées. Tu aura du mal à te mouvoir tant que tu n'aura pas pris soin de ta taille.")
-delay_print("Où souhaites tu aller?\n")
+    delay_print("Tes extremités organiques ont beaucoup trop poussées. Tu aura du mal à te mouvoir tant que tu n'aura pas pris soin de ta taille.", perso= Perso)
+delay_print("Où souhaites tu aller?\n", perso= Perso)
 #ListLieux=["Toilettes","Table","Terminal","Porte"]
 
 ListLieux = [Toilettes, "Porte", "Table", "Terminal", "Malle", "Miroir"]
@@ -300,28 +297,28 @@ while not all(list(Completed.values())):
     if ((not Completed[Toilettes]) and
         Lieu != Toilettes):
         if Regne == "Minéral":
-            delay_print("Ton envie d'aller réactiver ta structure cristalline est vraiment trop pressante.")
+            delay_print("Ton envie d'aller réactiver ta structure cristalline est vraiment trop pressante.", perso= Perso)
         elif Regne == "Végétal":
-            delay_print("Ton besoin de taille est vraiment trop pressante.")
+            delay_print("Ton besoin de taille est vraiment trop pressante.", perso= Perso)
         elif Regne == "Animal":
-            delapy_print("Ton envie de te soulager est vraiment trop pressante.")
-        delay_print("Où veux tu aller?\n")
+            delapy_print("Ton envie de te soulager est vraiment trop pressante.", perso= Perso)
+        print("Où veux tu aller?\n")
         continue
 
     delay_print("Tu te déplace vers le (la) {}".format(Lieu), perso=Perso, type="vitesse")
     if Completed[Lieu]:
         if Lieu == "Miroir":
-            delay_print("Tu te regardes dans le mirroir. Tu n'as pas changé depuis tout à l'heure")
+            delay_print("Tu te regardes dans le mirroir. Tu n'as pas changé depuis tout à l'heure", perso= Perso)
         else:
             print("Plus rien à découvrir ici.\n")
-        delay_print("Où souhaites tu aller?\n")
+        print("Où souhaites tu aller?\n")
         continue
     if Lieu== Toilettes :
         Perso.CaracBase=TOilettes(Regne,Perso)
         UpdateCarac(Perso)
         if Perso.Carac2["P2V"]<0:
             print("Tu n'as malheureusement pas assez de points de vie")
-            delay_print("Tu te sens très faible. Ton prof de sport te disait souvent que tu étais de trop faible consistance. Il avait visiblement raison. Tu succombe de tes blessures.\n GAME OVER \n")
+            delay_print("Tu te sens très faible. Ton prof de sport te disait souvent que tu étais de trop faible consistance. Il avait visiblement raison. Tu succombe de tes blessures.\n GAME OVER \n", perso= Perso)
             sys.exit()
         Completed[Toilettes]=True
     if Lieu=="Terminal":
@@ -346,21 +343,21 @@ while not all(list(Completed.values())):
     if Lieu=="Porte":
         Completed["Porte"]=True
         if not all(list(Completed.values())):
-            delay_print("""Tu t'approche de la porte. C'est une porte métallique avec une poignée en bois.\n""")
+            delay_print("""Tu t'approche de la porte. C'est une porte métallique avec une poignée en bois.\n""", perso= Perso, type = "Perception")
             print("""Veux tu ouvrir la porte?\n""")
             ouvrir=Input(["o","n"])            
             if ouvrir=="o":
-                delay_print("""La porte est fermée de l'extérieure\n""")
+                delay_print("""La porte est fermée de l'extérieure\n""", perso= Perso)
             print("""Veux tu toquer à la porte?\n""")
             ouvrir=Input(["o","n"])            
             if ouvrir=="o":
-                delay_print("""Rien ne se passe\n""")
+                delay_print("""Rien ne se passe\n""", perso= Perso)
             print("""Veux tu cogner fort dans la porte?\n""")
             ouvrir=Input(["o","n"])
             iLoop=0
             TextDouleur="Rien ne se passe sauf que tu viens de te faire"
             while ouvrir=="o":
-                delay_print(TextDouleur+" mal\n")
+                delay_print(TextDouleur+" mal\n", perso= Perso)
                 TextDouleur+=" très"
                 try:
                     p2VLost=int(Perso.Carac["Force"]*0.1*min(10,iLoop+1))
@@ -381,10 +378,10 @@ while not all(list(Completed.values())):
                 except :
                     P2VLeft=1
                 if P2VLeft<=0:
-                    delay_print("""Ce coup dans la porte est malheureusement la dernière action que tu peux entreprendre. Tu t'écroule par terre, mort. \nGAME OVER\n""")
+                    delay_print("""Ce coup dans la porte est malheureusement la dernière action que tu peux entreprendre. Tu t'écroule par terre, mort. \nGAME OVER\n""", perso= Perso)
                     sys.exit()
                 if iLoop==0:
-                    delay_print("""En regardant attentivement la porte tu remarques qu'en dessous de la poignée est écrit en petites lettres : "connais toi toi-même"\n""")
+                    delay_print("""En regardant attentivement la porte tu remarques qu'en dessous de la poignée est écrit en petites lettres : "connais toi toi-même"\n""", perso= Perso)
                 print("""Veux tu cogner encore plus fort dans la porte?\n""")
                 ouvrir=Input(["o","n"])
                 iLoop+=1
@@ -392,7 +389,8 @@ while not all(list(Completed.values())):
 
             Completed["Porte"]=False
         else:
-            delay_print("""Tu t'approche de la porte. C'est une porte métallique avec une poignée en bois.\n""")
+            delay_print("""Tu t'approche de la porte.""", perso=Perso, type = "Vitesse")
+            delay_print("""C'est une porte métallique avec une poignée en bois.\n""", perso= Perso, type= "Perception")
             print("""Veux tu ouvrir la porte?\n""")
             ouvrir=Input(["o","n"])            
             if ouvrir=="o":
@@ -404,5 +402,5 @@ while not all(list(Completed.values())):
         
         if ppp=="o":
               PrintFichePerso(Perso)
-        delay_print("Où veux tu aller?\n")
+        print("Où veux tu aller?\n")
 

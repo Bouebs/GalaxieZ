@@ -2,12 +2,14 @@ import sys,time
 from Carac import *
 from _ast import If
 import random
+from Perso import Personnage
 
+def delay_print(s, perso: Personnage, ts=0.04, type=None):
+    if perso and perso.print_speed == 2:
+        print(s)
+        return
 
-def delay_print(s, ts=0.04, perso=None, type=None):
-    f = open("fast_print.txt")
-
-    if type in ["vitesse", "Vitesse"]:
+    if type in ["vitesse", "Vitesse"] and perso.Carac["Vitesse"]:
         
         v = perso.Carac["Vitesse"]
         print("vitesse = " + str(v))
@@ -26,10 +28,7 @@ def delay_print(s, ts=0.04, perso=None, type=None):
 
         if  v < 20 :
             ts = 5 * (20. - int(v)) ** 3 / 19 / 100 + 0.04
-            print("coucou" + str(ts))
 
-    if f.readlines()[0] == "True":
-        print(s)
     elif type in ["Perception, perception"] and Perso.Carac["Perception"] < 20:
         proba = float(Perso.Carac["Perception"]) / 20
         if Perso.Carac["Perception"] == 0:
@@ -45,7 +44,8 @@ def delay_print(s, ts=0.04, perso=None, type=None):
             sys.stdout.write(caractere)
             sys.stdout.flush()
             time.sleep(ts)
-
+    elif perso and perso.print_speed == 1:
+        print(s)
     else:
         for c in s:
 
@@ -55,7 +55,7 @@ def delay_print(s, ts=0.04, perso=None, type=None):
 
 
 def Input(ListInputPossibles, perso=None, type=None):
-    delay_print(ListInputPossibles, ts=0.01, perso=perso , type=type)
+    delay_print(str(ListInputPossibles), ts=0.01, perso=perso , type=type)
 
     rep= input() 
     while rep not in ListInputPossibles:
