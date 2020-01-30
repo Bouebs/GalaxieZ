@@ -12,7 +12,6 @@ def delay_print(s, perso: Personnage, ts=0.04, type=None):
     if type in ["vitesse", "Vitesse"] and perso.Carac["Vitesse"]:
         
         v = perso.Carac["Vitesse"]
-        print("vitesse = " + str(v))
         if v == 0:
             delay_print("Tu es beaucoup trop lent. Même l'éternité ne te suffirait pas à faire ce que tu viens d'entreprendre. Tu te demandes d'ailleurs pendant longtemps comment tu as pu accomplir autant de choses en étant aussi lent....\n")
             time.sleep(3)
@@ -46,12 +45,12 @@ def delay_print(s, perso: Personnage, ts=0.04, type=None):
             time.sleep(ts)
     elif perso and perso.print_speed == 1:
         print(s)
-    else:
-        for c in s:
 
-            sys.stdout.write(c)
-            sys.stdout.flush()
-            time.sleep(ts)
+    for c in s:
+
+        sys.stdout.write(c)
+        sys.stdout.flush()
+        time.sleep(ts)
 
 
 def Input(ListInputPossibles, perso=None, type=None):

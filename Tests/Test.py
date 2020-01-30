@@ -3,9 +3,10 @@ from FichePerso import *
 from Perso import *
 from Lieux import *
 
-
-
-
+perso = Personnage()
+perso.Carac["Vitesse"] = 10
+delay_print("Ceci doit prendre plus de 20 secondes", perso=perso, type="Vitesse")
+sys.exit()
 
 Perso=Personnage()
 

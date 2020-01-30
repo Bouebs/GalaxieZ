@@ -1,12 +1,14 @@
 import unittest
-from Functions import delay_print
 from Perso import Personnage
+from Functions import delay_print
 
-Perso = Personnage()
+class TestVitesse(unittest.TestCase):
 
-Perso.Carac = dict()
-Perso.Carac["Vitesse"] = 15
+    def test_Vitesse10(self):
+        perso = Personnage()
+        perso.Carac["Vitesse"]=10
+        delay_print("Ceci doit prendre plus de 20 secondes", perso= perso, type="Vitesse")
 
-for vitesse in [20, 15, 10, 5, 0]:
-    Perso.Carac["Vitesse"] = vitesse
-    delay_print("{} de vitesse".format(vitesse), perso=Perso, type="vitesse")
+
+if __name__=="__main__" :
+    unittest.main()
