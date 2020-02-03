@@ -28,21 +28,22 @@ def delay_print(s, perso: Personnage, ts=0.04, type=None):
         if  v < 20 :
             ts = 5 * (20. - int(v)) ** 3 / 19 / 100 + 0.04
 
-    elif type in ["Perception, perception"] and Perso.Carac["Perception"] < 20:
-        proba = float(Perso.Carac["Perception"]) / 20
-        if Perso.Carac["Perception"] == 0:
+    elif type in ["Perception", "perception"] and perso.Carac["Perception"] < 20:
+        proba = float(perso.Carac["Perception"]) / 20
+        if perso.Carac["Perception"] == 0:
             delay_print("Tu ne vois rien autour de toi. Il t'es impossible de te repérer. Tu moeurs lentement en te demandans comment tu as réussi à accomplir autant de choses jusqu'à présent sans rien voir ni sentir...")
             print("GAME OVER")
             time.sleep(6)
             sys.exit()
         for c in s:
-            if random.random(1) < proba:
+            if random.random() < proba:
                 caractere = c
             else:
                 caractere = "#"
             sys.stdout.write(caractere)
             sys.stdout.flush()
             time.sleep(ts)
+        return
     elif perso and perso.print_speed == 1:
         print(s)
 
