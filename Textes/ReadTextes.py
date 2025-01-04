@@ -1,10 +1,15 @@
 # -*- coding: utf-8 -*-
 import io
+from pathlib import Path
 
+
+def my_open_file_in_Textes(filename):
+    script_dir = Path(__file__).parent
+    return open(script_dir / filename, 'r', encoding='utf8')
 
 def SexeList():
     Sexes = dict()
-    f = open("Textes/Galaxie Z - Sexes.tsv", 'r', encoding='utf8')
+    f = my_open_file_in_Textes("Textes/Galaxie Z - Sexes.tsv", 'r', encoding='utf8')
     lines = f.readlines()
     for line in lines[1:]:
         ls = line.split("\t")
@@ -14,8 +19,7 @@ def SexeList():
 
 
 def LoadFins():
-    f = open("Textes/Galaxie Z - {}.tsv".format(Regne), 'r', encoding='utf8')
-    f = open("Textes/Galaxie Z - Fins aléatoires 2078.tsv", encoding="utf-8")
+    f = my_open_file_in_Textes("Galaxie Z - Fins aléatoires 2078.tsv", encoding="utf-8")
     ListFins = []
     for line in f.readlines()[1:]:
         fin = line.split("\t")[1]
@@ -26,7 +30,7 @@ def LoadFins():
 
 
 def LoadPlanetes():
-    f = open("Textes/Galaxie Z - Planètes.tsv", encoding="utf-8")
+    f = my_open_file_in_Textes("Galaxie Z - Planètes.tsv", encoding="utf-8")
     ListPlanetes = dict()
     for regne in ["Minéral", "Animal", "Végétal"]:
         ListPlanetes[regne] = dict()
@@ -46,7 +50,7 @@ def LoadPlanetes():
 
 
 def Inventaire():
-    f = open('Textes/Galaxie Z - Inventaire.tsv', encoding="utf-8")
+    f = my_open_file_in_Textes('Galaxie Z - Inventaire.tsv', encoding="utf-8")
     ListObj = []
     for line in f.readlines()[46:]:
         ls = line.split("\t")
@@ -67,7 +71,7 @@ def Inventaire():
 def ReadCompList():
     CompList = dict()
     AllComp = []
-    f = open("Textes/Compétences.tsv", 'r', encoding='utf8')
+    f = my_open_file_in_Textes("Compétences.tsv")
     lines = f.readlines()[1:]
     for line in lines:
         ls = line.split("\t")
@@ -111,7 +115,7 @@ def FindCompInCompList(comp, complist):
 
 def ExcuseList():
     Ex = []
-    f = open("Textes/Galaxie Z - Excuses.tsv", 'r', encoding='utf8')
+    f = my_open_file_in_Textes("Galaxie Z - Excuses.tsv")
     lines = f.readlines()
     f.close()
     for line in lines[1:]:
@@ -121,7 +125,7 @@ def ExcuseList():
 
 
 def GetListMetiers():
-    f = open("Textes/Métiers.tsv", 'r', encoding='utf8')
+    f = my_open_file_in_Textes("Métiers.tsv")
     lines = f.readlines()
     Metiers = dict()
     for line in lines[1:]:
@@ -141,7 +145,7 @@ def RacesL():
 
     Regne = "Minéral"
 
-    f = open("Textes/Galaxie Z - {}.tsv".format(Regne), 'r', encoding='utf8')
+    f = my_open_file_in_Textes("Galaxie Z - {}.tsv".format(Regne))
 
     lines = f.readlines()
 
