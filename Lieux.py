@@ -4,11 +4,13 @@ from Textes.ReadTextes import *
 from Perso import Personnage
 import Carac, sys
 
+ExcuseL=ExcuseList()
+
 def Terminal(P: Personnage):
-    delay_print("""Tu arrive au terminal multimodal. Dès que tu le touche, celui-ci s'active et une voix dit : "identification de l'individu". Après un très bref délai, la voix reprend : "votre numéro pôle emploi est le numéro Z{}.
+    delay_print("""Tu arrives au terminal multimodal. Dès que tu le touche, celui-ci s'active et une voix dit : "identification de l'individu". Après un très bref délai, la voix reprend : "votre numéro pôle emploi est le numéro Z{}.
     \n""".format(random.randint(0,1000000000)), perso= P)
     CompList=ReadCompList()
-    print("Quel est ton métier?")
+    print("Quel est ton métier ?")
     print("Choisir un métier te donne un niveau 2 (sur un maximum de 10) pour 10 compétences") 
     Metiers = GetListMetiers()
     MetierChoisie=False
@@ -17,7 +19,7 @@ def Terminal(P: Personnage):
         MetierTmp=Input(list(Metiers.keys()))
         DescrL=Metiers[MetierTmp]["Descr"]
         if len(DescrL)<2:
-            DescrL="Comment ça tu ne sais pas ce qu'est un {}? Soit t'es un boulet, ou alors peut-être que cette description manque car {}.".format(MetierTmp,ExcuseL[random.randint(0,len(ExcuseL))])
+            DescrL="Comment ça tu ne sais pas ce qu'est un {} ? Soit t'es un boulet, ou alors peut-être que cette description manque car {}.".format(MetierTmp,ExcuseL[random.randint(0,len(ExcuseL))])
 
 
         print("Description : {}".format(DescrL))
@@ -32,39 +34,39 @@ def Terminal(P: Personnage):
 
 
     PointsLeft=16
-    print("""Tu peux maintenant répartir {} point comme tu le souhaite.""".format(PointsLeft))
+    print("""Tu peux maintenant répartir {} point(s) comme tu le souhaites.""".format(PointsLeft))
 
     while PointsLeft!=0:
-        print("Quel domaine de compétence veux tu améliorer")
+        print("Quel domaine de compétence veux-tu améliorer")
         Key0=Input(list(CompList.keys()))
         if Key0 == "Combat":
             Key0Text= ""
         else:
             Key0Text= Key0
         while PointsLeft!=0:
-            print("Quel sous domaine de compétence veux tu améliorer?")
+            print("Quel sous domaine de compétence veux-tu améliorer ?")
             Key1=Input(list(CompList[Key0].keys()))
             while PointsLeft!=0:
-                print("Dans le domaine {}, dans le sous domaine {}, les compétences sont {}".format(Key0,Key1,CompList[Key0][Key1].keys()))
-                print("Entrer un compétence pour avoir un descriptif")
+                print("Dans le domaine {}, dans le sous domaine {}, les compétences sont : {}".format(Key0,Key1,  ', '.join(CompList[Key0][Key1].keys())))
+                print("Entrer une compétence pour avoir un descriptif.")
                 CompL=Input(list(CompList[Key0][Key1].keys()))
                 if len(CompList[Key0][Key1][CompL]["Description"])<5:
-                    Descr="""Comment ça, tu ne sais pas ce qu'est un(e)"{}"? Soit t'es un boulet, soit les développeur n'ont pas bien fini ce jeu.""".format(CompL)
+                    Descr="""Comment ça, tu ne sais pas ce qu'est un(e)"{}"? Soit t'es un boulet, soit les développeurs n'ont pas bien fini ce jeu.""".format(CompL)
                 else:
                     Descr=CompList[Key0][Key1][CompL]["Description"]
                     
                 if "Degat" in CompList[Key0][Key1][CompL].keys():
-                    print("Description : {}\n Dégât de base : {}\n Portée maximal en mètres : {}".format(Descr,CompList[Key0][Key1][CompL]["Degat"],CompList[Key0][Key1][CompL]["Portee"]))
+                    print("Description : {}\n Dégât de base : {}\n Portée maximale en mètres : {}".format(Descr,CompList[Key0][Key1][CompL]["Degat"],CompList[Key0][Key1][CompL]["Portee"]))
                 else:
                     print("Description : {}\n".format(Descr))
                     
-                print("Veux tu développer cette compétence?")
+                print("Veux-tu développer cette compétence ?")
                 if Input(["o","n"])=="o":
-                    print("Combien de points veux tu ajouter? (il te reste {} points à répartir)".format(PointsLeft))
+                    print("Combien de points veux-tu ajouter ? (il te reste {} point(s) à répartir)".format(PointsLeft))
                     pL=0
                     while not pL:
                         try:
-                            pL = int(input())
+                            pL = int(input()) # vérifie que le nombre entré par le joueur est un entier
                             break
                         except:
                             print("Tu dois entrer un nombre entier")
@@ -86,13 +88,13 @@ def Terminal(P: Personnage):
                         PointsLeft-=pL
                         if PointsLeft==0:
                             break 
-                print("Veux tu continuer d'améliorer tes compétences dans le même sous domaine ({})?".format(Key1))
+                print("Veux-tu continuer d'améliorer tes compétences dans le même sous domaine ({})?".format(Key1))
                 if Input(["o","n"])=="n":
                     break
             if PointsLeft==0:
                 break 
 
-            print("Veux tu continuer d'améliorer tes compétences dans le même domaine ({})?".format(Key0))    
+            print("Veux-tu continuer d'améliorer tes compétences dans le même domaine ({})?".format(Key0))    
             if Input(["o","n"])=="n":
                 break
     
@@ -102,20 +104,20 @@ def Table(Perso: Personnage):
     Rep="lll"
 
     while Rep!="p":
-        delay_print("""Veux tu ouvrir""", perso=Perso)
+        delay_print("""Veux-tu ouvrir""", perso=Perso)
         delay_print("""le tiroir de gauche (g), le tiroir de droite (d)""", perso=Perso, type="Perception")
         delay_print(""", ou partir (p)""", perso= Perso)
         Rep=Input(["g","d","p"])
         
         if Rep=="g":
-            delay_print("""Tu ouvre le tiroir de gauche""", perso=Perso, type="vitesse")
+            delay_print("""Tu ouvres le tiroir de gauche""", perso=Perso, type="vitesse")
             delay_print(""" mais celui ci est vide.\n""", perso= Perso, type="Perception")
         elif Rep=="d":
             if Info!=None:
-                delay_print("""Tu ouvre le tiroir de droite""", perso=Perso, type="vitesse")
+                delay_print("""Tu ouvres le tiroir de droite""", perso=Perso, type="vitesse")
                 delay_print(""" mais il n'y a plus rien dedans.\n""", perso=Perso, type= "Perception")
                 continue
-            delay_print("""Tu ouvre le tiroir de droite.""", perso=Perso, type="vitesse")
+            delay_print("""Tu ouvres le tiroir de droite.""", perso=Perso, type="vitesse")
             delay_print(""" A l'interieur, tu trouve un pièce d'identité numérique.""", perso=Perso, type="Perception")
             Info=dict()
             Info["Nom"]="111111111111111111111111111111111111111111111111111111111111"
@@ -130,7 +132,7 @@ def Table(Perso: Personnage):
                     age = int(input("Choisis ton âge en années\n"))
                     break
                 except:
-                    print("L'age doit être un nombre entier.")
+                    print("L'âge doit être un nombre entier.")
 
             Info["Age"]=age
             if Info["Age"]>Perso.RaceInfo['AgeMax']:
@@ -140,7 +142,7 @@ def Table(Perso: Personnage):
                 delay_print("Certains mystères ne pourront jamais être compris. Comment est ce qu'un {} de seulement {} ans a pu se retrouver ici sans aide? Tu pleures pendant des heures comme un bébé en espérant vainement que quelqu'un vienne s'occuper de toi.\nGAME OVER\n".format(Perso.Race,age), perso= Perso)
                 sys.exit()
 
-            delay_print("""En dessous de la pièce d'identité, il y a un carnet de note. En l'ouvrant tu découvre que c'est un journal intime\n""", perso=Perso)
+            delay_print("""En dessous de la pièce d'identité, il y a un carnet de note. En l'ouvrant tu découvres que c'est un journal intime\n""", perso=Perso)
             Descr="eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
             lenmax=100
             while len(Descr)>lenmax:
@@ -155,7 +157,6 @@ def Table(Perso: Personnage):
     return Info
 
 def TOilettes(Regne,Perso):
-    ExcuseL = ExcuseList()
 
     SexeL = SexeList()
     if Regne=="Animal":
@@ -163,7 +164,7 @@ def TOilettes(Regne,Perso):
         print("Quel est ton sexe?\n")
         Sexe=Input(["Masculin","Feminin"])
 
-        delay_print("""Tu te soulage... psssssssssss
+        delay_print("""Tu te soulages... psssssssssss
                  ssssssssssssss
 
     ssss
@@ -173,7 +174,7 @@ floq floq floq.
         delay_print("""Une voix synthétique venue de nulle part dit: "analyse d'urine en cours... détermination des capacités."\n Un écran jusqu'alors invisible s'allume alors sur le mur derrière les toilettes.\n""", perso=Perso)
 
     elif Regne=="Végétal":
-        delay_print("""Comme tes membres ont poussé pendant ton sommeil, tu décides d'aller te faire une petite taille dans le cabanon de jardinage. Un séquateur te permet de te soulager... tchac tchic
+        delay_print("""Comme tes membres ont poussé pendant ton sommeil, tu décides d'aller te faire une petite taille dans le cabanon de jardinage. Un sécateur te permet de te soulager... tchac tchic
 
 
 tchac tchac
@@ -183,7 +184,7 @@ Alors que tu jettes tes rebus dans le composteur, une voix synhétique venue de 
 
     elif Regne=="Minéral":
         
-        delay_print("""Tu décides d'aller vérifier ton état de santé à l'aide de la micro-sonde électronique tomographique. C'est un modèle dernier cri VEOLIA xd-spx667. Dès que tu t'approche suffisamment de la machine, celle ci se met en route. Une voix synhétique venue de nulle part dit: "analyse en cours veuillez patientez."\n Après quelques secondes d'attente un écran multi-sensoriel qui était jusqu'alors invisible s'allume face à toi.\n""" ,perso=Perso)
+        delay_print("""Tu décides d'aller vérifier ton état de santé à l'aide de la micro-sonde électronique tomographique. C'est un modèle dernier cri VEOLIA xd-spx667. Dès que tu t'approches suffisamment de la machine, celle-ci se met en route. Une voix synhétique venue de nulle part dit: "analyse en cours veuillez patientez."\n Après quelques secondes d'attente un écran multi-sensoriel qui était jusqu'alors invisible s'allume face à toi.\n""" ,perso=Perso)
 
     if Regne!="Animal":
         if Perso.RaceInfo["SexeType"]!="non":

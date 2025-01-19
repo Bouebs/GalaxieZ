@@ -98,40 +98,40 @@ delay_print("""
 delay_print("""
 
                                                                                                                  
-Une planète pyramidale violette tourne autour de toi. Elle est d'abord loin et t'apparaît petite mais elle se rapproche doucement et inexorablement de toi. Elle devient de plus en plus grosse et tu n'en discerne maintenant plus très bien les bords. Tu commence alors à tomber en chute libre vers le sol.
-Tu apercois sur le sol une forme de fractale légèrement bleutée. Ta chute semble ne jamais finir. La fractal grossit néanmoins petit à petit. Tu vois maintenant en son centre une grande montagne pointue sur laquelle tu va t'écraser. Tu es saisi d'une peur panique.
-C'est à ce moment que tu te réveille.
+Une planète pyramidale violette tourne autour de toi. Elle est d'abord loin et t'apparaît petite mais elle se rapproche doucement et inexorablement de toi. Elle devient de plus en plus grosse et tu n'en discernes maintenant plus très bien les bords. Tu commences alors à tomber en chute libre vers le sol.
+Tu aperçois sur le sol une forme de fractale légèrement bleutée. Ta chute semble ne jamais finir. La fractale grossit néanmoins petit à petit. Tu vois maintenant en son centre une grande montagne pointue sur laquelle tu vas t'écraser. Tu es saisi d'une peur panique.
+C'est à ce moment que tu te réveilles.
 
 
-Alors que tu cherches à interpréter cet étrange cauchemar, une peur soudaine te saisie. Où es tu? 
-Où étais tu lorsque tu t'es endormi? 
+Alors que tu cherches à interpréter cet étrange cauchemar, une peur soudaine te saisit. Où es tu ? 
+Où étais tu lorsque tu t'es endormi ? 
 Où étais tu hier...                                                 
 ... la semaine dernière...                                         
 ... il y a 6 mois...                                           
-... il y a 6 siècles???                                
+... il y a 6 siècles ???                                
 Ton esprit est très embrouillé. Tu n'as plus aucun souvenir.                                   
 Tes sens s'activent néenmoins peu à peu.
 
 """, perso= Perso)
 if not Perso.print_speed == 0:
     time.sleep(2)
-print("""De quel règne es-tu originaire?""")
+print("""De quel règne es-tu originaire ?""")
 Races=RacesL()
 RegneChoisie=False
 while not RegneChoisie:
     print("\n Entrer le nom d'un règne pour obtenir une description")
     RegneTmp=Input(["Animal","Minéral","Végétal"])
-    print(Races[RegneTmp+"Descr"])
+    print(Races[RegneTmp+"Descr"]) #affiche la valeur du dictionnaire "Races" dont la clé est composée de ce que le joueur à entré + Descr. Exemple : MinéralDescr pour accéder au contenu voulu.
     print("Veux tu choisir le règne {}?".format(RegneTmp))
     if Input(["o","n"])=="o":
         Perso.Regne=RegneTmp
         RegneChoisie=True
     else:
-        print("""De quel règne es-tu originaire?\n""")
+        print("""De quel règne es-tu originaire ?\n""")
 
 Perso.Regne = RegneTmp
 Regne=Perso.Regne
-print("""\n Quelle est ta race?\n""")
+print("""\n Quelle est ta race ?\n""")
 
 
 global Race
@@ -160,7 +160,7 @@ while not RaceChoisie :
         Perso.Race=RaceTmp
         RaceChoisie=True
     else:
-        print("""\n Quelle est ta race?\n""")
+        print("""\n Quelle est ta race ?\n""")
 #if Regne = 
 
 delay_print(Perso.RaceInfo["Intro"], perso= Perso)
@@ -177,8 +177,8 @@ elif Regne=="Végétal":
 elif Regne=="Minéral":
     Toilettes="Sonde"
     Texte="une multi micro-sonde électronique tomographique"
-delay_print("""Tu te trouve dans une pièce carrée d'environ cinq mètres par cinq. De l'ensemble du plafond se dégage une lumière parfaitement homogène et bleutée.  
-Le lit sur lequel tu t'es réveillé est dans un coin de la pièce. A côté du lit, il y a une table Louis XV en accajou céleste. Il n'y a rien sur la table mais il y a deux tiroirs avec une poignée en marbre rose. A côté de la table, il y a un mirroir. Au pied du lit, il y a une malle métallique.  Sur le mur opposé à la table, il y a un terminal numérique comprenant un écran et un casque synaptique. Dans le coin opposé il y a une porte. Enfin à droite de la porte il y a {}.\n""".format(Texte), perso= Perso)
+delay_print("""Tu te trouves dans une pièce carrée d'environ cinq mètres par cinq. De l'ensemble du plafond se dégage une lumière parfaitement homogène et bleutée.  
+Le lit sur lequel tu t'es réveillé est dans un coin de la pièce. A côté du lit, il y a une table Louis XV en acajou céleste. Il n'y a rien sur la table mais il y a deux tiroirs avec une poignée en marbre rose. A côté de la table, il y a un miroir. Au pied du lit, il y a une malle métallique.  Sur le mur opposé à la table, il y a un terminal numérique comprenant un écran et un casque synaptique. Dans le coin opposé il y a une porte. Enfin à droite de la porte il y a {}.\n""".format(Texte), perso= Perso)
 
 if Regne=="Animal":
     print("""
@@ -282,7 +282,7 @@ if Regne == "Minéral":
 elif Regne == "Animal":
     delay_print("Tu as très envie d'aller aux toilettes.", perso= Perso)
 elif Regne == "Végétal":
-    delay_print("Tes extremités organiques ont beaucoup trop poussées. Tu aura du mal à te mouvoir tant que tu n'aura pas pris soin de ta taille.", perso= Perso)
+    delay_print("Tes extremités organiques ont beaucoup trop poussé. Tu aura du mal à te mouvoir tant que tu n'auras pas pris soin de ta taille.", perso= Perso)
 delay_print("Où souhaites tu aller?\n", perso= Perso)
 #ListLieux=["Toilettes","Table","Terminal","Porte"]
 

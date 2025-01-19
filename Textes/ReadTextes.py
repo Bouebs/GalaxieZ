@@ -8,8 +8,9 @@ def my_open_file_in_Textes(filename):
     return open(script_dir / filename, 'r', encoding='utf8')
 
 def SexeList():
+    # Initialisation d'un dictionnaire pour stocker les sexes
     Sexes = dict()
-    f = my_open_file_in_Textes("Textes/Galaxie Z - Sexes.tsv", 'r', encoding='utf8')
+    f = my_open_file_in_Textes("Galaxie Z - Sexes.tsv")
     lines = f.readlines()
     for line in lines[1:]:
         ls = line.split("\t")
