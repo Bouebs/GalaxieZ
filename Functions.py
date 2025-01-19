@@ -14,7 +14,7 @@ def delay_print(message, perso: Personnage, ts=0.04, type:str=None):
         if v == 0:
             delay_print("Tu es beaucoup trop lent. Même l'éternité ne te suffirait pas à faire ce que tu viens d'entreprendre. Tu te demandes d'ailleurs pendant longtemps comment tu as pu accomplir autant de choses en étant aussi lent....\n")
             time.sleep(3)
-            delay_print("Mais comment as tu d'ailleurs pu faire la moindre chose?\n")
+            delay_print("Mais comment as-tu d'ailleurs pu faire la moindre chose ?\n")
             time.sleep(3)
             delay_print("C'est vraiment très surprenant.\n")
             time.sleep(4)
@@ -30,7 +30,7 @@ def delay_print(message, perso: Personnage, ts=0.04, type:str=None):
     elif type in ["Perception", "perception"] and isinstance(perso.Carac["Perception"], int) and perso.Carac["Perception"] < 20:
         proba = float(perso.Carac["Perception"]) / 20
         if perso.Carac["Perception"] == 0:
-            delay_print("Tu ne vois rien autour de toi. Il t'es impossible de te repérer. Tu moeurs lentement en te demandans comment tu as réussi à accomplir autant de choses jusqu'à présent sans rien voir ni sentir...")
+            delay_print("Tu ne vois rien autour de toi. Il t'es impossible de te repérer. Tu moeurs lentement en te demandant comment tu as réussi à accomplir autant de choses jusqu'à présent sans rien voir ni sentir...")
             print("GAME OVER")
             time.sleep(6)
             sys.exit()
@@ -58,7 +58,7 @@ def Input(ListInputPossibles, perso=None, type=None):
 
     rep= input() 
     while rep not in ListInputPossibles:
-        print("Réponse non comprise")
+        print("Réponse non comprise.")
         delay_print(ListInputPossibles, ts=0.01, perso=perso , type=type)
         print(ListInputPossibles)
         rep=input()
