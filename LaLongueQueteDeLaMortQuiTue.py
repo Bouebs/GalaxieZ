@@ -110,7 +110,7 @@ Où étais tu hier...
 ... il y a 6 mois...                                           
 ... il y a 6 siècles ???                                
 Ton esprit est très embrouillé. Tu n'as plus aucun souvenir.                                   
-Tes sens s'activent néenmoins peu à peu.
+Tes sens s'activent néanmoins peu à peu.
 
 """, perso= Perso)
 if not Perso.print_speed == 0:
@@ -119,10 +119,10 @@ print("""De quel règne es-tu originaire ?""")
 Races=RacesL()
 RegneChoisie=False
 while not RegneChoisie:
-    print("\n Entrer le nom d'un règne pour obtenir une description")
+    print("\n Entre le nom d'un règne pour obtenir une description.")
     RegneTmp=Input(["Animal","Minéral","Végétal"])
     print(Races[RegneTmp+"Descr"]) #affiche la valeur du dictionnaire "Races" dont la clé est composée de ce que le joueur à entré + Descr. Exemple : MinéralDescr pour accéder au contenu voulu.
-    print("Veux tu choisir le règne {}?".format(RegneTmp))
+    print("Veux-tu choisir le règne {} ?".format(RegneTmp))
     if Input(["o","n"])=="o":
         Perso.Regne=RegneTmp
         RegneChoisie=True
@@ -140,7 +140,7 @@ while not RaceChoisie :
     list_races = list(Races[Regne].keys())
     list_races.remove("Description")
     print("""Les races existantes sont \n {}\n""".format(list_races))
-    print("\n Entrer le nom de la race pour obtenir une description\n")
+    print("\n Entrer le nom de la race pour obtenir une description : \n")
     RaceTmp = Input(list_races)
     print("{}.".format(Races[Regne][RaceTmp]["Description"]))
     print("Bonus")
@@ -154,7 +154,7 @@ while not RaceChoisie :
         except:
             strL=Races[Regne][RaceTmp]["Bonus"][C]
         print("{:<12} : {}".format(C,strL))
-    print("Veux tu choisir d'être un {}?".format(RaceTmp))
+    print("Veux-tu choisir d'être un {}?".format(RaceTmp))
     if Input(["o","n"])=="o":
         Perso.RaceInfo=Races[Regne][RaceTmp]
         Perso.Race=RaceTmp
@@ -278,12 +278,12 @@ ________________________________________________________________
 """)
 
 if Regne == "Minéral":
-    delay_print("Tu rensens un besoin pressant d'aller réactiver ta structure cristalline à la micro-sonde électronique.", perso= Perso)
+    delay_print("Tu ressens un besoin pressant d'aller réactiver ta structure cristalline à la micro-sonde électronique.", perso= Perso)
 elif Regne == "Animal":
     delay_print("Tu as très envie d'aller aux toilettes.", perso= Perso)
 elif Regne == "Végétal":
-    delay_print("Tes extremités organiques ont beaucoup trop poussé. Tu aura du mal à te mouvoir tant que tu n'auras pas pris soin de ta taille.", perso= Perso)
-delay_print("Où souhaites tu aller?\n", perso= Perso)
+    delay_print("Tes extremités organiques ont beaucoup trop poussé. Tu auras du mal à te mouvoir tant que tu n'auras pas pris soin de ta taille.", perso= Perso)
+delay_print("Où souhaites-tu aller ?\n", perso= Perso)
 #ListLieux=["Toilettes","Table","Terminal","Porte"]
 
 ListLieux = [Toilettes, "Porte", "Table", "Terminal", "Malle", "Miroir"]
@@ -299,26 +299,26 @@ while not all(list(Completed.values())):
         if Regne == "Minéral":
             delay_print("Ton envie d'aller réactiver ta structure cristalline est vraiment trop pressante.", perso= Perso)
         elif Regne == "Végétal":
-            delay_print("Ton besoin de taille est vraiment trop pressante.", perso= Perso)
+            delay_print("Ton besoin de taille est vraiment trop pressant.", perso= Perso)
         elif Regne == "Animal":
             delapy_print("Ton envie de te soulager est vraiment trop pressante.", perso= Perso)
-        print("Où veux tu aller?\n")
+        print("Où veux-tu aller?\n")
         continue
 
-    delay_print("Tu te déplace vers le (la) {}".format(Lieu), perso=Perso, type="vitesse")
+    delay_print("Tu te déplaces vers le (la) {}.".format(Lieu), perso=Perso, type="vitesse")
     if Completed[Lieu]:
         if Lieu == "Miroir":
-            delay_print("Tu te regardes dans le mirroir. Tu n'as pas changé depuis tout à l'heure", perso= Perso)
+            delay_print("Tu te regardes dans le mirroir. Tu n'as pas changé depuis tout à l'heure.", perso= Perso)
         else:
             print("Plus rien à découvrir ici.\n")
-        print("Où souhaites tu aller?\n")
+        print("Où souhaites-tu aller?\n")
         continue
     if Lieu== Toilettes :
         Perso.CaracBase=TOilettes(Regne,Perso)
         UpdateCarac(Perso)
         if Perso.Carac2["P2V"]<0:
             print("Tu n'as malheureusement pas assez de points de vie")
-            delay_print("Tu te sens très faible. Ton prof de sport te disait souvent que tu étais de trop faible consistance. Il avait visiblement raison. Tu succombe de tes blessures.\n GAME OVER \n", perso= Perso)
+            delay_print("Tu te sens très faible. Ton prof de sport te disait souvent que tu étais de trop faible constitution. Il avait visiblement raison. Tu succombes à tes blessures.\n GAME OVER \n", perso= Perso)
             sys.exit()
         Completed[Toilettes]=True
     if Lieu=="Terminal":
@@ -343,16 +343,16 @@ while not all(list(Completed.values())):
     if Lieu=="Porte":
         Completed["Porte"]=True
         if not all(list(Completed.values())):
-            delay_print("""Tu t'approche de la porte. C'est une porte métallique avec une poignée en bois.\n""", perso= Perso, type = "Perception")
-            print("""Veux tu ouvrir la porte?\n""")
+            delay_print("""Tu t'approches de la porte. C'est une porte métallique avec une poignée en bois.\n""", perso= Perso, type = "Perception")
+            print("""Veux-tu ouvrir la porte ?\n""")
             ouvrir=Input(["o","n"])            
             if ouvrir=="o":
-                delay_print("""La porte est fermée de l'extérieure\n""", perso= Perso)
-            print("""Veux tu toquer à la porte?\n""")
+                delay_print("""La porte est fermée de l'extérieur.\n""", perso= Perso)
+            print("""Veux-tu toquer à la porte?\n""")
             ouvrir=Input(["o","n"])            
             if ouvrir=="o":
-                delay_print("""Rien ne se passe\n""", perso= Perso)
-            print("""Veux tu cogner fort dans la porte?\n""")
+                delay_print("""Rien ne se passe.\n""", perso= Perso)
+            print("""Veux-tu cogner fort dans la porte ?\n""")
             ouvrir=Input(["o","n"])
             iLoop=0
             TextDouleur="Rien ne se passe sauf que tu viens de te faire"
@@ -378,20 +378,20 @@ while not all(list(Completed.values())):
                 except :
                     P2VLeft=1
                 if P2VLeft<=0:
-                    delay_print("""Ce coup dans la porte est malheureusement la dernière action que tu peux entreprendre. Tu t'écroule par terre, mort. \nGAME OVER\n""", perso= Perso)
+                    delay_print("""Ce coup dans la porte est malheureusement la dernière action que tu peux entreprendre. Tu t'écroules par terre, mort. \nGAME OVER\n""", perso= Perso)
                     sys.exit()
                 if iLoop==0:
                     delay_print("""En regardant attentivement la porte tu remarques qu'en dessous de la poignée est écrit en petites lettres : "connais toi toi-même"\n""", perso= Perso)
-                print("""Veux tu cogner encore plus fort dans la porte?\n""")
+                print("""Veux-tu cogner encore plus fort dans la porte?\n""")
                 ouvrir=Input(["o","n"])
                 iLoop+=1
 
 
             Completed["Porte"]=False
         else:
-            delay_print("""Tu t'approche de la porte.""", perso=Perso, type = "Vitesse")
+            delay_print("""Tu t'approches de la porte.""", perso=Perso, type = "Vitesse")
             delay_print("""C'est une porte métallique avec une poignée en bois.\n""", perso= Perso, type= "Perception")
-            print("""Veux tu ouvrir la porte?\n""")
+            print("""Veux-tu ouvrir la porte?\n""")
             ouvrir=Input(["o","n"])            
             if ouvrir=="o":
                 print("C'est la fin du jeu. GAME OVER (enfin sauf si t'as beaucoup de chance) A FAIRE")
@@ -402,5 +402,5 @@ while not all(list(Completed.values())):
         
         if ppp=="o":
               PrintFichePerso(Perso)
-        print("Où veux tu aller?\n")
+        print("Où veux-tu aller?\n")
 
