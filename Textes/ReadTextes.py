@@ -18,16 +18,16 @@ def SexeList():
 
     return Sexes
 
-
-def LoadFins():
-    f = my_open_file_in_Textes("Galaxie Z - Fins aléatoires 2078.tsv", encoding="utf-8")
-    ListFins = []
-    for line in f.readlines()[1:]:
-        fin = line.split("\t")[1]
-        if len(fin) > 3:
-            ListFins.append(fin)
-
-    return ListFins
+#Fonction remplacée par EndList()
+#    def LoadFins():
+#        f = my_open_file_in_Textes("Galaxie Z - Fins aléatoires 2078.tsv", encoding="utf-8")
+#        ListFins = []
+#        for line in f.readlines()[1:]:
+#            fin = line.split("\t")[1]
+#            if len(fin) > 3:
+#                ListFins.append(fin)
+#
+#        return ListFins
 
 
 def LoadPlanetes():
