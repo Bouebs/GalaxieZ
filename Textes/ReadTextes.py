@@ -186,3 +186,14 @@ def RacesL():
                     Races[Regne][RaceL]["Bonus"][BS[0]] = int(BS[1])
 
     return Races
+
+#Fonction qui crée une variable Ed contenant l'ensemble des fins aléatoires du jeu
+def EndList():
+    Ed = []
+    f = my_open_file_in_Textes("Galaxie Z - Fins aléatoires.tsv")
+    lines = f.readlines()
+    f.close()
+    for line in lines[1:]:
+        Ed.append(line)
+
+    return Ed

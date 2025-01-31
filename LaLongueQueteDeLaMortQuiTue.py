@@ -301,7 +301,7 @@ while not all(list(Completed.values())):
         elif Regne == "Végétal":
             delay_print("Ton besoin de taille est vraiment trop pressant.", perso= Perso)
         elif Regne == "Animal":
-            delapy_print("Ton envie de te soulager est vraiment trop pressante.", perso= Perso)
+            delay_print("Ton envie de te soulager est vraiment trop pressante.", perso= Perso)
         print("Où veux-tu aller?\n")
         continue
 
@@ -394,7 +394,8 @@ while not all(list(Completed.values())):
             print("""Veux-tu ouvrir la porte?\n""")
             ouvrir=Input(["o","n"])            
             if ouvrir=="o":
-                print("C'est la fin du jeu. GAME OVER (enfin sauf si t'as beaucoup de chance) A FAIRE")
+                 EndL=EndList()
+                 print("Tu parviens à ouvrir la porte, alors que la liberté d'un monde immense s'ouvre à toi tu sens qu'il s'agit d'un jour particulier. {}".format(EndL[random.randint(0,len(EndL))]))
 
     if not Completed["Porte"]:
         print("Avant de continuer la création de personnage, veux tu imprimer ta fiche de personnage?")
