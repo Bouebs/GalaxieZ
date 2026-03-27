@@ -31,14 +31,13 @@ def SexeList():
 
 
 def LoadPlanetes():
-    f = my_open_file_in_Textes("Galaxie Z - Planètes.tsv", encoding="utf-8")
+    f = my_open_file_in_Textes("Galaxie Z - Planètes.tsv")
     ListPlanetes = dict()
     for regne in ["Minéral", "Animal", "Végétal"]:
         ListPlanetes[regne] = dict()
     for line in f.readlines()[1:]:
         if len(line) < 4:
             continue
-        print(line)
         ls = line.split("\t")
         if ls[4] == "o":
             ListPlanetes["Minéral"][ls[2]] = ls[3]
