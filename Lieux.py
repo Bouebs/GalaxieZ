@@ -104,7 +104,7 @@ def Table(Perso: Personnage):
     Rep="lll"
 
     while Rep!="p":
-        delay_print("""Veux-tu ouvrir""", perso=Perso)
+        delay_print("""Veux-tu ouvrir """, perso=Perso)
         delay_print("""le tiroir de gauche (g), le tiroir de droite (d)""", perso=Perso, type="Perception")
         delay_print(""", ou partir (p)""", perso= Perso)
         Rep=Input(["g","d","p"])
@@ -141,6 +141,24 @@ def Table(Perso: Personnage):
             if Info["Age"]<Perso.RaceInfo['AgeMin']:
                 delay_print("Certains mystères ne pourront jamais être élucidés. Comment est ce qu'un {} de seulement {} ans a pu se retrouver ici sans aide ? Tu pleures pendant des heures comme un bébé en espérant vainement que quelqu'un vienne s'occuper de toi.\nGAME OVER\n".format(Perso.Race,age), perso= Perso)
                 sys.exit()
+
+            delay_print("""De quelle planète viens-tu ?""", perso=Perso, type="vitesse") 
+            Planete = LoadPlanetes()
+            PlaneteChoisie=False
+            while not PlaneteChoisie:
+                print("\n Entrer le nom d'une planète pour obtenir une description. Le choix de la planète d'origine peut modifier vos caractéristiques.")
+                PlaneteTmp=Input(list(Planete.keys()))
+                DescrL=Planete[PlaneteTmp]["Descr"]
+                if len(DescrL)<2:
+                    DescrL="Comment ça tu ne connais pas {} ? Soit t'es un boulet, ou alors peut-être que cette description manque car {}.".format(PlaneteTmp,ExcuseL[random.randint(0,len(ExcuseL))])
+
+
+                print("Description : {}".format(DescrL))
+                print("Veux-tu choisir d'être originaire de {}".format(PlaneteTmp))
+                if Input(["o","n"])=="o":
+                    P.Planete=PlaneteTmp
+                    PlaneteChoisie=True
+
 
             delay_print("""En dessous de la pièce d'identité, il y a un carnet de note. En l'ouvrant tu découvres que c'est un journal intime.\n""", perso=Perso)
             Descr="eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
