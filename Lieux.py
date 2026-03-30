@@ -146,9 +146,12 @@ def Table(Perso: Personnage):
             Planete = LoadPlanetes()
             PlaneteChoisie=False
             while not PlaneteChoisie:
-                print("\n Entrer le nom d'une planète pour obtenir une description. Le choix de la planète d'origine peut modifier vos caractéristiques.")
-                PlaneteTmp=Input(list(Planete.keys()))
-                DescrL=Planete[PlaneteTmp]["Descr"]
+                print("\n Entrer le nom d'une planète pour obtenir sa description. Le choix de la planète d'origine peut modifier vos caractéristiques.")
+                
+                print("Rappel tu as choisi le Règne ", Perso.Regne)
+
+                PlaneteTmp=Input(list(Planete[Perso.Regne].keys()))
+                DescrL=Planete[Perso.Regne][PlaneteTmp]
                 if len(DescrL)<2:
                     DescrL="Comment ça tu ne connais pas {} ? Soit t'es un boulet, ou alors peut-être que cette description manque car {}.".format(PlaneteTmp,ExcuseL[random.randint(0,len(ExcuseL))])
 
@@ -156,7 +159,7 @@ def Table(Perso: Personnage):
                 print("Description : {}".format(DescrL))
                 print("Veux-tu choisir d'être originaire de {}".format(PlaneteTmp))
                 if Input(["o","n"])=="o":
-                    P.Planete=PlaneteTmp
+                    Info["Planète"]=PlaneteTmp
                     PlaneteChoisie=True
 
 
@@ -202,7 +205,7 @@ Alors que tu jettes tes rebuts dans le composteur, une voix synhétique venue de
 
     elif Regne=="Minéral":
         
-        delay_print("""Tu décides d'aller vérifier ton état de santé à l'aide de la micro-sonde électronique tomographique. C'est un modèle dernier cri VEOLIA xd-spx667. Dès que tu t'approches suffisamment de la machine, celle-ci se met en route. Une voix synhétique venue de nulle part dit: "analyse en cours veuillez patientez."\n Après quelques secondes d'attente un écran multi-sensoriel qui était jusqu'alors invisible s'allume face à toi.\n""" ,perso=Perso)
+        delay_print("""Tu décides d'aller vérifier ton état de santé à l'aide de la micro-sonde électronique tomographique. C'est un modèle dernier cri VEOLIA xd-spx667. Dès que tu t'approches suffisamment de la machine, celle-ci se met en route. Une voix synhétique venue de nulle part dit: "analyse en cours veuillez patientez."\n Après quelques secondes d'attente un écran multi-sensoriel, qui était jusqu'alors invisible, s'allume face à toi.\n""" ,perso=Perso)
 
     if Regne!="Animal":
         if Perso.RaceInfo["SexeType"]!="non":
@@ -216,7 +219,7 @@ Alors que tu jettes tes rebuts dans le composteur, une voix synhétique venue de
                 if len(SexeL[SexeTmp])>3:
                     print(SexeL[SexeTmp])
                 else:
-                    print("Comment ça tu ne sais pas ce qu'est un (une) {} {} ? Soit t'es un boulet, ou alors peut-être que cette description manque car {}.".format(Perso.RaceInfo["SexeType"], SexeTmp, ExcuseL[random.randint(0, len(ExcuseL) - 1)]))
+                    print("Comment ça tu ne sais pas ce qu'est un (une) {} {} ? Soit t'es un boulet, soit cette description manque car {}.Mais ça ne se peut pas.".format(Perso.RaceInfo["SexeType"], SexeTmp, ExcuseL[random.randint(0, len(ExcuseL) - 1)]))
                 print("Veux-tu choisir {} comme {} ?".format(SexeTmp,Perso.RaceInfo["SexeType"]))
                 if Input(["o","n"])=="o":
                     Perso.SexeType=Perso.RaceInfo["SexeType"]
@@ -234,9 +237,9 @@ Alors que tu jettes tes rebuts dans le composteur, une voix synhétique venue de
 
         print("""
 
-Pour information les valeurs indiqués sont les valeurs avant la prise en compte des modificateurs dûs à la race, l'âge... \n
+Pour information, les valeurs indiquées sont les valeurs avant la prise en compte des modificateurs dûs à la race, l'âge... \n
 Veux-tu retirer aléatoirement tes caractéristiques ?
-Attention la valeur maximale totale que tu pourra obtenir sera diminuée de 2.""")
+Attention, la valeur maximale totale que tu pourra obtenir sera diminuée de 2.""")
         Retirer=Input(["o","n"])
         base-=2
 
