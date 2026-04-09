@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import io
 from pathlib import Path
+from Functions import *
 
 
 def my_open_file_in_Textes(filename):
@@ -139,14 +140,14 @@ def GetListMetiers():
             Metiers[Key0]["Comp"].append(ls[1])
     return Metiers
 
+#fonction de choix du Règne du joueur, renvoie la valeur choisie par le joueur.
+def Choix_du_regne() :
+    return Input(["Animal","Minéral","Végétal"])
 
-def RacesL():
+def Load_Races(RegneTmp):
     Races = dict()
-
-    Regne = "Minéral"
-
+    Regne = RegneTmp
     f = my_open_file_in_Textes("Galaxie Z - {}.tsv".format(Regne))
-
     lines = f.readlines()
 
     Races[Regne] = dict()
@@ -183,6 +184,40 @@ def RacesL():
                     Races[Regne][RaceL]["Bonus"][BS[0]] = "Max 1"
                 else:
                     Races[Regne][RaceL]["Bonus"][BS[0]] = int(BS[1])
+
+    Races["VégétalDescr"] = Races[Regne]["Description"] = lines[1].split("\t")[3]
+    for line in lines[2:]:
+        if len(line) < 20:
+             break
+        ls = line.split("\t")
+        RaceL = ls[2].split()[1]
+        Races[Regne][RaceL] = dict()
+
+        Races[Regne][RaceL]["Description"] = ls[3]
+        Races[Regne][RaceL]["SexeType"] = ls[4]
+        if ls[4] != "non":
+            Races[Regne][RaceL]["Sexe"] = []
+            valsL = ls[5].split()
+            for v in valsL:
+                if v == "m":
+                    Races[Regne][RaceL]["Sexe"].append("masculin")
+                elif v == "f":
+                    Races[Regne][RaceL]["Sexe"].append("feminin")
+                else:
+                    Races[Regne][RaceL]["Sexe"].append(v)
+        Races[Regne][RaceL]["Intro"] = ls[6]
+        Races[Regne][RaceL]["AgeMin"] = int(ls[7])
+        Races[Regne][RaceL]["AgeMax"] = int(ls[8])
+        Races[Regne][RaceL]["Bonus"] = dict()
+
+        for Bonus in ls[9:]:
+            if len(Bonus) > 2:
+                BS = Bonus.split()
+                if "Max" in BS[1]:
+                    Races[Regne][RaceL]["Bonus"][BS[0]] = "Max 1"
+                else:
+                    Races[Regne][RaceL]["Bonus"][BS[0]] = int(BS[1])
+
 
     return Races
 
