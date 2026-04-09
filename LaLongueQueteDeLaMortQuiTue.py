@@ -116,16 +116,17 @@ Tes sens s'activent néanmoins peu à peu.
 if not Perso.print_speed == 0:
     time.sleep(2)
 print("""De quel règne es-tu originaire ?""")
-Races=RacesL()
-RegneChoisie=False
-while not RegneChoisie:
+
+RegneChoisi=False
+while not RegneChoisi:
     print("\n Entre le nom d'un règne pour obtenir une description.")
-    RegneTmp=Input(["Animal","Minéral","Végétal"])
-    print(Races[RegneTmp+"Descr"]) #affiche la valeur du dictionnaire "Races" dont la clé est composée de ce que le joueur à entré + Descr. Exemple : MinéralDescr pour accéder au contenu voulu.
+    RegneTmp = Choix_du_regne()
+    Races=Load_Races(RegneTmp)
+    print(Races[RegneTmp+"Descr"]) #affiche la valeur du dictionnaire "Races" dont la clé est composée de ce que le joueur a entré + Descr. Exemple : MinéralDescr pour accéder au contenu voulu.
     print("Veux-tu choisir le règne {} ?".format(RegneTmp))
     if Input(["o","n"])=="o":
         Perso.Regne=RegneTmp
-        RegneChoisie=True
+        RegneChoisi=True
     else:
         print("""De quel règne es-tu originaire ?\n""")
 
@@ -178,7 +179,7 @@ elif Regne=="Minéral":
     Toilettes="Sonde"
     Texte="une multi micro-sonde électronique tomographique"
 delay_print("""Tu te trouves dans une pièce carrée d'environ cinq mètres par cinq. De l'ensemble du plafond se dégage une lumière parfaitement homogène et bleutée.  
-Le lit sur lequel tu t'es réveillé est dans un coin de la pièce. A côté du lit, il y a une table Louis XV en acajou céleste. Il n'y a rien sur la table mais il y a deux tiroirs avec une poignée en marbre rose. A côté de la table, il y a un miroir. Au pied du lit, il y a une malle métallique.  Sur le mur opposé à la table, il y a un terminal numérique comprenant un écran et un casque synaptique. Dans le coin opposé il y a une porte. Enfin à droite de la porte il y a {}.\n""".format(Texte), perso= Perso)
+Le lit sur lequel tu t'es réveillé est dans un coin de la pièce. A côté du lit, il y a une table Louis XV en acajou céleste. Il n'y a rien sur la table mais il y a deux tiroirs avec une poignée en marbre rose. A côté de la table, il y a un miroir. Au pied du lit, il y a une malle métallique. Sur le mur opposé à la table, il y a un terminal numérique comprenant un écran et un casque synaptique. Dans le coin opposé il y a une porte. Enfin à droite de la porte il y a {}.\n""".format(Texte), perso= Perso)
 
 if Regne=="Animal":
     print("""
