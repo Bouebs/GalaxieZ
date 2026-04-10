@@ -6,6 +6,8 @@ from Textes.ReadTextes import *
 import Carac
 from Lieux import Terminal, Table, TOilettes, Malle, Miroir
 from Functions import *
+from Music import gerer_la_musique
+
 # from kitchen.text.converters import getwriter
 # UTF8Writer = getwriter('utf8')
 # sys.stdout = UTF8Writer(sys.stdout)
@@ -36,6 +38,7 @@ class QuFormatter(string.Formatter):
             key = self.quoted[key]
         return string.Formatter.get_value(self, key, args, kwargs)
 
+gerer_la_musique("play")
 
 delay_print("""
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -1,4 +1,21 @@
-def calculer_interets(capital, taux, duree):
-    if capital < 0 or taux < 0 or duree < 0:
-        raise ValueError("Les valeurs doivent être positives")
-    return capital * taux * duree
+import pygame
+
+"""
+<Sound>.play(loop = 0, time = ms 0 signifie maxtime, fadein = ms)
+        .stop()
+        .fadeout(ms)
+        .set_volume(entre 0.0 et 1.0)
+        .get_volume()
+        .get_lenght(en secondes)
+
+"""
+
+
+pygame.init()
+
+def gerer_la_musique(commande):
+    ambiant_song = pygame.mixer.Sound("musicloop.wav")
+    if commande == "play":
+        ambiant_song.play(2,0,5000)
+    elif commande == "stop":
+        ambiant_song.stop()
