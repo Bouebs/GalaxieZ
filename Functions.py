@@ -60,7 +60,6 @@ def Input(ListInputPossibles, perso=None, type=None):
     while rep not in ListInputPossibles:
         print("Réponse non comprise.")
         delay_print(ListInputPossibles, ts=0.01, perso=perso , type=type)
-        print(ListInputPossibles)
         rep=input()
     return rep
 

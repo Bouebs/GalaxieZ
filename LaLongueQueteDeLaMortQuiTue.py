@@ -120,7 +120,7 @@ print("""De quel règne es-tu originaire ?""")
 RegneChoisi=False
 while not RegneChoisi:
     print("\n Entre le nom d'un règne pour obtenir une description.")
-    RegneTmp = Choix_du_regne()
+    RegneTmp = Input(["Animal","Minéral","Végétal"])
     Races=Load_Races(RegneTmp)
     print(Races[RegneTmp+"Descr"]) #affiche la valeur du dictionnaire "Races" dont la clé est composée de ce que le joueur a entré + Descr. Exemple : MinéralDescr pour accéder au contenu voulu.
     print("Veux-tu choisir le règne {} ?".format(RegneTmp))

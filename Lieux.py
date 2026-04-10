@@ -201,7 +201,7 @@ floq floq floq.
 tchac tchac
 
 tchic tchic
-Alors que tu jettes tes rebuts dans le composteur, une voix synhétique venue de nulle part dit: "analyse génétique en cours... détermination des capacités."\n Un écran multi-sensoriel qui était jusqu'alors invisible s'allume sur un mur du cabanon.\n""", perso=Perso)
+Alors que tu jettes tes rebuts dans le composteur, une voix synthétique venue de nulle part dit: "analyse génétique en cours... détermination des capacités."\n Un écran multi-sensoriel qui était jusqu'alors invisible s'allume sur un mur du cabanon.\n""", perso=Perso)
 
     elif Regne=="Minéral":
         
@@ -214,7 +214,7 @@ Alors que tu jettes tes rebuts dans le composteur, une voix synhétique venue de
             while not SexeChoisi :
 
                 print("Quel(le) est ton (ta) {}?".format(Perso.RaceInfo["SexeType"]))
-                print("\n Entrer le nom d'un (d'une) {} pour obtenir une description\n".format(Perso.RaceInfo["SexeType"]))
+                print("\nEntrer le nom d'un (d'une) {} pour obtenir une description\n".format(Perso.RaceInfo["SexeType"]))
                 SexeTmp=Input(Perso.RaceInfo["Sexe"])
                 if len(SexeL[SexeTmp])>3:
                     print(SexeL[SexeTmp])
@@ -239,7 +239,7 @@ Alors que tu jettes tes rebuts dans le composteur, une voix synhétique venue de
 
 Pour information, les valeurs indiquées sont les valeurs avant la prise en compte des modificateurs dûs à la race, l'âge... \n
 Veux-tu retirer aléatoirement tes caractéristiques ?
-Attention, la valeur maximale totale que tu pourra obtenir sera diminuée de 2.""")
+Attention, la valeur maximale totale que tu pourras obtenir sera diminuée de 2.""")
         Retirer=Input(["o","n"])
         base-=2
 

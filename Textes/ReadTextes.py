@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import io
 from pathlib import Path
-from Functions import *
 
 
 def my_open_file_in_Textes(filename):
@@ -139,10 +138,6 @@ def GetListMetiers():
         else:
             Metiers[Key0]["Comp"].append(ls[1])
     return Metiers
-
-#fonction de choix du Règne du joueur, renvoie la valeur choisie par le joueur.
-def Choix_du_regne() :
-    return Input(["Animal","Minéral","Végétal"])
 
 def Load_Races(RegneTmp):
     Races = dict()

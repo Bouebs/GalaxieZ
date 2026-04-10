@@ -1,3 +1,9 @@
+import sys
+import os
+
+#Ajoute le dossier parent (GALAXIEZ) à sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 import unittest
 from Perso import Personnage
 from Functions import delay_print
